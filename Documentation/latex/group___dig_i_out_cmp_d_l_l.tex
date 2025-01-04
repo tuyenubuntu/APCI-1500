@@ -1,0 +1,236 @@
+\hypertarget{group___dig_i_out_cmp_d_l_l}{}\section{Digital outputs}
+\label{group___dig_i_out_cmp_d_l_l}\index{Digital outputs@{Digital outputs}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___dig_i_out_cmp_d_l_l_ga4f29155ed15df89f2eb9adda70aff8dd}{i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Set1\+Digital\+Output\+On}} (B\+Y\+T\+E\+\_\+ b\+\_\+\+Board\+Handle, B\+Y\+T\+E\+\_\+ b\+\_\+\+Channel)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___dig_i_out_cmp_d_l_l_ga9eda92ebaff799b1c11bb1b9ee1398a5}{i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Set1\+Digital\+Output\+Off}} (B\+Y\+T\+E\+\_\+ b\+\_\+\+Board\+Handle, B\+Y\+T\+E\+\_\+ b\+\_\+\+Channel)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___dig_i_out_cmp_d_l_l_ga439a1e1515a453090470a6f61824b3fd}{i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Set8\+Digital\+Output\+On}} (B\+Y\+T\+E\+\_\+ b\+\_\+\+Board\+Handle, B\+Y\+T\+E\+\_\+ b\+\_\+\+Port, B\+Y\+T\+E\+\_\+ b\+\_\+\+Value)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___dig_i_out_cmp_d_l_l_ga862584b98c34377450f35f8f88c19975}{i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Set8\+Digital\+Output\+Off}} (B\+Y\+T\+E\+\_\+ b\+\_\+\+Board\+Handle, B\+Y\+T\+E\+\_\+ b\+\_\+\+Port, B\+Y\+T\+E\+\_\+ b\+\_\+\+Value)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___dig_i_out_cmp_d_l_l_ga956ca22ff1ea8ca5c4381d2cc4e42e94}{i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Set16\+Digital\+Output\+On}} (B\+Y\+T\+E\+\_\+ b\+\_\+\+Board\+Handle, L\+O\+N\+G\+\_\+ l\+\_\+\+Value)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___dig_i_out_cmp_d_l_l_ga2daabf430576f988eeb5880d93d5656d}{i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Set16\+Digital\+Output\+Off}} (B\+Y\+T\+E\+\_\+ b\+\_\+\+Board\+Handle, L\+O\+N\+G\+\_\+ l\+\_\+\+Value)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___dig_i_out_cmp_d_l_l_ga5a65096e11ef3b94118f094dd6f692b7}{i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Reset\+Outputs\+After\+Close}} (B\+Y\+T\+E\+\_\+ b\+\_\+\+Board\+Handle)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group___dig_i_out_cmp_d_l_l_ga4f29155ed15df89f2eb9adda70aff8dd}\label{group___dig_i_out_cmp_d_l_l_ga4f29155ed15df89f2eb9adda70aff8dd}} 
+\index{Digital outputs@{Digital outputs}!i\_APCI1500\_Set1DigitalOutputOn@{i\_APCI1500\_Set1DigitalOutputOn}}
+\index{i\_APCI1500\_Set1DigitalOutputOn@{i\_APCI1500\_Set1DigitalOutputOn}!Digital outputs@{Digital outputs}}
+\subsubsection{\texorpdfstring{i\_APCI1500\_Set1DigitalOutputOn()}{i\_APCI1500\_Set1DigitalOutputOn()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Set1\+Digital\+Output\+On (\begin{DoxyParamCaption}\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Board\+Handle,  }\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Channel }\end{DoxyParamCaption})}
+
+Permits to set a digital output of the board A\+P\+C\+I-\/1500 to ON (high state)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Board\+Handle} & Handle of the board \\
+\hline
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Channel} & Digital output channel to set (1 to 16)\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & \+: No Error ~\newline
+\\
+\hline
+{\em -\/1} & \+: The handle parameter of the board is wrong ~\newline
+\\
+\hline
+{\em -\/2} & \+: Channel number is not between 1 and 16 ~\newline
+\\
+\hline
+{\em -\/102} & \+: Error while calling I\+O\+C\+TL function (wrong handle ?) ~\newline
+\\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___dig_i_out_cmp_d_l_l_ga9eda92ebaff799b1c11bb1b9ee1398a5}\label{group___dig_i_out_cmp_d_l_l_ga9eda92ebaff799b1c11bb1b9ee1398a5}} 
+\index{Digital outputs@{Digital outputs}!i\_APCI1500\_Set1DigitalOutputOff@{i\_APCI1500\_Set1DigitalOutputOff}}
+\index{i\_APCI1500\_Set1DigitalOutputOff@{i\_APCI1500\_Set1DigitalOutputOff}!Digital outputs@{Digital outputs}}
+\subsubsection{\texorpdfstring{i\_APCI1500\_Set1DigitalOutputOff()}{i\_APCI1500\_Set1DigitalOutputOff()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Set1\+Digital\+Output\+Off (\begin{DoxyParamCaption}\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Board\+Handle,  }\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Channel }\end{DoxyParamCaption})}
+
+Permits to reset a digital output of the board A\+P\+C\+I-\/1500 ~\newline
+Digital output memory must be enabled
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Board\+Handle} & Handle of the board \\
+\hline
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Channel} & Digital output channel to reset (1 to 16)\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & \+: No Error ~\newline
+\\
+\hline
+{\em -\/1} & \+: The handle parameter of the board is wrong ~\newline
+\\
+\hline
+{\em -\/2} & \+: Channel number is not between 1 to 16 ~\newline
+\\
+\hline
+{\em -\/3} & \+: Output memory is not on ~\newline
+\\
+\hline
+{\em -\/102} & \+: Error while calling I\+O\+C\+TL function (wrong handle ?) ~\newline
+\\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___dig_i_out_cmp_d_l_l_ga439a1e1515a453090470a6f61824b3fd}\label{group___dig_i_out_cmp_d_l_l_ga439a1e1515a453090470a6f61824b3fd}} 
+\index{Digital outputs@{Digital outputs}!i\_APCI1500\_Set8DigitalOutputOn@{i\_APCI1500\_Set8DigitalOutputOn}}
+\index{i\_APCI1500\_Set8DigitalOutputOn@{i\_APCI1500\_Set8DigitalOutputOn}!Digital outputs@{Digital outputs}}
+\subsubsection{\texorpdfstring{i\_APCI1500\_Set8DigitalOutputOn()}{i\_APCI1500\_Set8DigitalOutputOn()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Set8\+Digital\+Output\+On (\begin{DoxyParamCaption}\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Board\+Handle,  }\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Port,  }\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Value }\end{DoxyParamCaption})}
+
+Sets a digital output port (8 bits) of the board A\+P\+C\+I-\/1500 to 1 (high state)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Board\+Handle} & Handle of the board \\
+\hline
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Port} & Port to set (1 or 2) \\
+\hline
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Value} & Mask of channels to set on the port (0x0 to 0x\+FF)\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & \+: No Error ~\newline
+\\
+\hline
+{\em -\/1} & \+: The handle parameter of the board is wrong ~\newline
+\\
+\hline
+{\em -\/2} & \+: Port number is not 1 or 2 ~\newline
+\\
+\hline
+{\em -\/102} & \+: Error while calling I\+O\+C\+TL function (wrong handle ?) ~\newline
+\\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___dig_i_out_cmp_d_l_l_ga862584b98c34377450f35f8f88c19975}\label{group___dig_i_out_cmp_d_l_l_ga862584b98c34377450f35f8f88c19975}} 
+\index{Digital outputs@{Digital outputs}!i\_APCI1500\_Set8DigitalOutputOff@{i\_APCI1500\_Set8DigitalOutputOff}}
+\index{i\_APCI1500\_Set8DigitalOutputOff@{i\_APCI1500\_Set8DigitalOutputOff}!Digital outputs@{Digital outputs}}
+\subsubsection{\texorpdfstring{i\_APCI1500\_Set8DigitalOutputOff()}{i\_APCI1500\_Set8DigitalOutputOff()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Set8\+Digital\+Output\+Off (\begin{DoxyParamCaption}\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Board\+Handle,  }\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Port,  }\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Value }\end{DoxyParamCaption})}
+
+Resets a digital output port (8 bits) of the board A\+P\+C\+I-\/1500 ~\newline
+Digital output memory must be enabled
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Board\+Handle} & Handle of the board \\
+\hline
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Port} & Port to set ( {\bfseries{P\+C\+I1500\+\_\+\+P\+O\+R\+T\+\_\+0}} \+: channels 0-\/7, {\bfseries{P\+C\+I1500\+\_\+\+P\+O\+R\+T\+\_\+1}} \+: channels 8-\/15) \\
+\hline
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Value} & Mask of channels to reset on the port ( 0x0 to 0x\+FF)\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & \+: No Error ~\newline
+\\
+\hline
+{\em -\/1} & \+: The handle parameter of the board is wrong ~\newline
+\\
+\hline
+{\em -\/2} & \+: Port number is not 1 or 2 ~\newline
+\\
+\hline
+{\em -\/3} & \+: Output memory is not on ~\newline
+\\
+\hline
+{\em -\/102} & \+: Error while calling I\+O\+C\+TL function (wrong handle ?) ~\newline
+\\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___dig_i_out_cmp_d_l_l_ga956ca22ff1ea8ca5c4381d2cc4e42e94}\label{group___dig_i_out_cmp_d_l_l_ga956ca22ff1ea8ca5c4381d2cc4e42e94}} 
+\index{Digital outputs@{Digital outputs}!i\_APCI1500\_Set16DigitalOutputOn@{i\_APCI1500\_Set16DigitalOutputOn}}
+\index{i\_APCI1500\_Set16DigitalOutputOn@{i\_APCI1500\_Set16DigitalOutputOn}!Digital outputs@{Digital outputs}}
+\subsubsection{\texorpdfstring{i\_APCI1500\_Set16DigitalOutputOn()}{i\_APCI1500\_Set16DigitalOutputOn()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Set16\+Digital\+Output\+On (\begin{DoxyParamCaption}\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Board\+Handle,  }\item[{L\+O\+N\+G\+\_\+}]{l\+\_\+\+Value }\end{DoxyParamCaption})}
+
+Sets several digital outputs of the board A\+P\+C\+I-\/1500
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Board\+Handle} & Handle of the board \\
+\hline
+\mbox{\texttt{ in}}  & {\em l\+\_\+\+Value} & Digital output mask value to set (0x0 to 0x\+F\+F\+FF)\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & \+: No Error ~\newline
+\\
+\hline
+{\em -\/1} & \+: The handle parameter of the board is wrong ~\newline
+\\
+\hline
+{\em -\/101} & \+: Error while calling I\+O\+C\+TL function (wrong handle ?) ~\newline
+\\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___dig_i_out_cmp_d_l_l_ga2daabf430576f988eeb5880d93d5656d}\label{group___dig_i_out_cmp_d_l_l_ga2daabf430576f988eeb5880d93d5656d}} 
+\index{Digital outputs@{Digital outputs}!i\_APCI1500\_Set16DigitalOutputOff@{i\_APCI1500\_Set16DigitalOutputOff}}
+\index{i\_APCI1500\_Set16DigitalOutputOff@{i\_APCI1500\_Set16DigitalOutputOff}!Digital outputs@{Digital outputs}}
+\subsubsection{\texorpdfstring{i\_APCI1500\_Set16DigitalOutputOff()}{i\_APCI1500\_Set16DigitalOutputOff()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Set16\+Digital\+Output\+Off (\begin{DoxyParamCaption}\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Board\+Handle,  }\item[{L\+O\+N\+G\+\_\+}]{l\+\_\+\+Value }\end{DoxyParamCaption})}
+
+Resets several digital outputs of the board A\+P\+C\+I-\/1500 ~\newline
+Digital output memory must be enabled
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Board\+Handle} & Handle of the board \\
+\hline
+\mbox{\texttt{ in}}  & {\em l\+\_\+\+Value} & Digital output mask value to reset (0x0 to 0x\+F\+F\+FF)\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & \+: No Error ~\newline
+\\
+\hline
+{\em -\/1} & \+: The handle parameter of the board is wrong ~\newline
+\\
+\hline
+{\em -\/2} & \+: Output memory is not on ~\newline
+\\
+\hline
+{\em -\/101} & \+: Error while calling I\+O\+C\+TL function (wrong handle ?) ~\newline
+\\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___dig_i_out_cmp_d_l_l_ga5a65096e11ef3b94118f094dd6f692b7}\label{group___dig_i_out_cmp_d_l_l_ga5a65096e11ef3b94118f094dd6f692b7}} 
+\index{Digital outputs@{Digital outputs}!i\_APCI1500\_ResetOutputsAfterClose@{i\_APCI1500\_ResetOutputsAfterClose}}
+\index{i\_APCI1500\_ResetOutputsAfterClose@{i\_APCI1500\_ResetOutputsAfterClose}!Digital outputs@{Digital outputs}}
+\subsubsection{\texorpdfstring{i\_APCI1500\_ResetOutputsAfterClose()}{i\_APCI1500\_ResetOutputsAfterClose()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Reset\+Outputs\+After\+Close (\begin{DoxyParamCaption}\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Board\+Handle }\end{DoxyParamCaption})}
+
+This funktion enable the reset from all outputs after a close from program ~\newline
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Board\+Handle} & Handle of the board\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & \+: No Error ~\newline
+\\
+\hline
+{\em -\/1} & \+: The handle parameter of the board is wrong ~\newline
+\\
+\hline
+\end{DoxyRetVals}

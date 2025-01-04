@@ -1,0 +1,65 @@
+\hypertarget{group___dig_out_memory_cmp_d_l_l}{}\section{Digital output memory}
+\label{group___dig_out_memory_cmp_d_l_l}\index{Digital output memory@{Digital output memory}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___dig_out_memory_cmp_d_l_l_gaecaa27e35bf68f62881f8ee7070e40e8}{i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Set\+Output\+Memory\+On}} (B\+Y\+T\+E\+\_\+ b\+\_\+\+Board\+Handle)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___dig_out_memory_cmp_d_l_l_ga60e1c31e661a532de9cc7f32b0a90b4f}{i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Set\+Output\+Memory\+Off}} (B\+Y\+T\+E\+\_\+ b\+\_\+\+Board\+Handle)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group___dig_out_memory_cmp_d_l_l_gaecaa27e35bf68f62881f8ee7070e40e8}\label{group___dig_out_memory_cmp_d_l_l_gaecaa27e35bf68f62881f8ee7070e40e8}} 
+\index{Digital output memory@{Digital output memory}!i\_APCI1500\_SetOutputMemoryOn@{i\_APCI1500\_SetOutputMemoryOn}}
+\index{i\_APCI1500\_SetOutputMemoryOn@{i\_APCI1500\_SetOutputMemoryOn}!Digital output memory@{Digital output memory}}
+\subsubsection{\texorpdfstring{i\_APCI1500\_SetOutputMemoryOn()}{i\_APCI1500\_SetOutputMemoryOn()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Set\+Output\+Memory\+On (\begin{DoxyParamCaption}\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Board\+Handle }\end{DoxyParamCaption})}
+
+Activate the digital output memory of the board A\+P\+C\+I-\/1500 When using the digital output memory, when setting the value of one digital output, the value of the other digital output is kept.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Board\+Handle} & Handle of the board\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & \+: No Error ~\newline
+\\
+\hline
+{\em -\/1} & \+: The handle parameter of the board is wrong ~\newline
+\\
+\hline
+{\em -\/101} & \+: Error while calling I\+O\+C\+TL function (wrong handle ?) ~\newline
+\\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___dig_out_memory_cmp_d_l_l_ga60e1c31e661a532de9cc7f32b0a90b4f}\label{group___dig_out_memory_cmp_d_l_l_ga60e1c31e661a532de9cc7f32b0a90b4f}} 
+\index{Digital output memory@{Digital output memory}!i\_APCI1500\_SetOutputMemoryOff@{i\_APCI1500\_SetOutputMemoryOff}}
+\index{i\_APCI1500\_SetOutputMemoryOff@{i\_APCI1500\_SetOutputMemoryOff}!Digital output memory@{Digital output memory}}
+\subsubsection{\texorpdfstring{i\_APCI1500\_SetOutputMemoryOff()}{i\_APCI1500\_SetOutputMemoryOff()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Set\+Output\+Memory\+Off (\begin{DoxyParamCaption}\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Board\+Handle }\end{DoxyParamCaption})}
+
+Deactivate the digital output memory of the board A\+P\+C\+I-\/1500
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Board\+Handle} & Handle of the board\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & \+: No Error ~\newline
+\\
+\hline
+{\em -\/1} & \+: The handle parameter of the board is wrong ~\newline
+\\
+\hline
+{\em -\/101} & \+: Error while calling I\+O\+C\+TL function (wrong handle ?) ~\newline
+\\
+\hline
+\end{DoxyRetVals}

@@ -1,0 +1,303 @@
+\hypertarget{group___general}{}\section{x\+P\+C\+I-\/1500 general functions}
+\label{group___general}\index{xPCI-\/1500 general functions@{xPCI-\/1500 general functions}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___general_ga62f69d2b4936fc6cfe75c6ee032d1f58}{i\+\_\+\+P\+C\+I1500\+\_\+\+Get\+Number\+Of\+Boards}} (P\+B\+Y\+TE pb\+\_\+\+Nbr\+Of\+Boards)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___general_gaa7f6b4012cf3a1b83f774d0d3b1d57e5}{i\+\_\+\+P\+C\+I1500\+\_\+\+Get\+Board\+Information}} (B\+Y\+TE b\+\_\+\+Board\+Index, D\+W\+O\+RD dw\+\_\+\+Identifier\+String\+Size, P\+C\+H\+AR pc\+\_\+\+Identifier, P\+D\+W\+O\+RD pdw\+\_\+\+U\+I\+Number, P\+D\+W\+O\+RD pdw\+\_\+\+Device\+Number, P\+D\+W\+O\+RD pdw\+\_\+\+Bus\+Number, P\+D\+W\+O\+RD pdw\+\_\+\+Base\+Address0, P\+D\+W\+O\+RD pdw\+\_\+\+Base\+Address1, P\+D\+W\+O\+RD pdw\+\_\+\+Base\+Address2, P\+B\+Y\+TE pb\+\_\+\+Interrupt)
+\item 
+I\+NT \mbox{\hyperlink{group___general_gadfb2a5aff9ca05e58de6336f8b29e8c7}{i\+\_\+\+P\+C\+I1500\+\_\+\+Clear\+Interrupt\+F\+I\+FO}} (H\+A\+N\+D\+LE h\+\_\+\+Device\+Handle)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___general_ga19e029e65407a4d996303cae78f0fac9}{i\+\_\+\+P\+C\+I1500\+\_\+\+Get\+Serial\+Number}} (H\+A\+N\+D\+LE h\+\_\+\+Device\+Handle, D\+W\+O\+RD $\ast$pdw\+\_\+\+Serial\+Number)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___general_ga7d7f2ed79ea2bfb214860383b71b475b}{i\+\_\+\+P\+C\+I1500\+\_\+\+Get\+Firmware\+Version}} (H\+A\+N\+D\+LE h\+\_\+\+Device\+Handle, P\+D\+W\+O\+RD pdw\+\_\+\+Firmware\+Version)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___general_gaccd171046bb08480b01e7ea61b5fca12}{i\+\_\+\+P\+C\+I1500\+\_\+\+Set\+Serial\+Number}} (H\+A\+N\+D\+LE h\+\_\+\+Device\+Handle, D\+W\+O\+RD dw\+\_\+\+Serial\+Number)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___general_gaf36014f444cdd1c38c391b145e9dce02}{i\+\_\+\+P\+C\+I1500\+\_\+\+Open\+Board\+Via\+Index}} (B\+Y\+TE b\+\_\+\+Board\+Index, P\+H\+A\+N\+D\+LE ph\+\_\+\+Device\+Handle)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___general_gaf9f936b30e3104527a05a668d4b05b8c}{i\+\_\+\+P\+C\+I1500\+\_\+\+Open\+Board\+Via\+Identifier}} (P\+C\+H\+AR pc\+\_\+\+Identifier, P\+H\+A\+N\+D\+LE ph\+\_\+\+Device\+Handle)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___general_gae1dbe5b9d73f401370318ea684796b68}{i\+\_\+\+P\+C\+I1500\+\_\+\+Close\+Board}} (H\+A\+N\+D\+LE h\+\_\+\+Device\+Handle)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___general_ga0ddc2b5875603b239ed35ff451099799}{i\+\_\+\+P\+C\+I1500\+\_\+\+Get\+D\+L\+L\+Version}} (P\+D\+W\+O\+RD pdw\+\_\+\+Version)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___general_ga6f3015889b492606932ba26a945b918c}{i\+\_\+\+P\+C\+I1500\+\_\+\+Get\+Device\+Driver\+Version}} (H\+A\+N\+D\+LE h\+\_\+\+Device\+Handle, P\+D\+W\+O\+RD pdw\+\_\+\+Version)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group___general_ga62f69d2b4936fc6cfe75c6ee032d1f58}\label{group___general_ga62f69d2b4936fc6cfe75c6ee032d1f58}} 
+\index{xPCI-\/1500 general functions@{xPCI-\/1500 general functions}!i\_PCI1500\_GetNumberOfBoards@{i\_PCI1500\_GetNumberOfBoards}}
+\index{i\_PCI1500\_GetNumberOfBoards@{i\_PCI1500\_GetNumberOfBoards}!xPCI-\/1500 general functions@{xPCI-\/1500 general functions}}
+\subsubsection{\texorpdfstring{i\_PCI1500\_GetNumberOfBoards()}{i\_PCI1500\_GetNumberOfBoards()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+P\+C\+I1500\+\_\+\+Get\+Number\+Of\+Boards (\begin{DoxyParamCaption}\item[{P\+B\+Y\+TE}]{pb\+\_\+\+Nbr\+Of\+Boards }\end{DoxyParamCaption})}
+
+Enables to get the number of x\+P\+C\+I-\/1500 boards present in the system. ~\newline
+The function fill the value pointed by pb\+\_\+\+Nbr\+Of\+Boards with the number of boards present.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em pb\+\_\+\+Nbr\+Of\+Boards} & Value that will be filled with the number of boards\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 \+: No error ~\newline
+ -\/1 \+: Error while getting the number of boards ~\newline
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___general_gaa7f6b4012cf3a1b83f774d0d3b1d57e5}\label{group___general_gaa7f6b4012cf3a1b83f774d0d3b1d57e5}} 
+\index{xPCI-\/1500 general functions@{xPCI-\/1500 general functions}!i\_PCI1500\_GetBoardInformation@{i\_PCI1500\_GetBoardInformation}}
+\index{i\_PCI1500\_GetBoardInformation@{i\_PCI1500\_GetBoardInformation}!xPCI-\/1500 general functions@{xPCI-\/1500 general functions}}
+\subsubsection{\texorpdfstring{i\_PCI1500\_GetBoardInformation()}{i\_PCI1500\_GetBoardInformation()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+P\+C\+I1500\+\_\+\+Get\+Board\+Information (\begin{DoxyParamCaption}\item[{B\+Y\+TE}]{b\+\_\+\+Board\+Index,  }\item[{D\+W\+O\+RD}]{dw\+\_\+\+Identifier\+String\+Size,  }\item[{P\+C\+H\+AR}]{pc\+\_\+\+Identifier,  }\item[{P\+D\+W\+O\+RD}]{pdw\+\_\+\+U\+I\+Number,  }\item[{P\+D\+W\+O\+RD}]{pdw\+\_\+\+Device\+Number,  }\item[{P\+D\+W\+O\+RD}]{pdw\+\_\+\+Bus\+Number,  }\item[{P\+D\+W\+O\+RD}]{pdw\+\_\+\+Base\+Address0,  }\item[{P\+D\+W\+O\+RD}]{pdw\+\_\+\+Base\+Address1,  }\item[{P\+D\+W\+O\+RD}]{pdw\+\_\+\+Base\+Address2,  }\item[{P\+B\+Y\+TE}]{pb\+\_\+\+Interrupt }\end{DoxyParamCaption})}
+
+Get device information of the board.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Board\+Index} & \+: Index of the board \\
+\hline
+\mbox{\texttt{ in}}  & {\em dw\+\_\+\+Identifier\+String\+Size} & \+: size of the identifier parameter \\
+\hline
+\mbox{\texttt{ out}}  & {\em pc\+\_\+\+Identifier} & Identifier of the board \\
+\hline
+\mbox{\texttt{ out}}  & {\em pdw\+\_\+\+U\+I\+Number} & \+: This number is typically a user-\/perceived slot number, such as a number printed next to the slot on the board, or some other number that makes locating the physical device easier for the user. If the device is on a bus that has no UI number convention, or if the bus driver for the device cannot determine the UI number, this value is 0x\+F\+F\+F\+F\+F\+F\+FF. \\
+\hline
+\mbox{\texttt{ out}}  & {\em pdw\+\_\+\+Device\+Number} & \+: Device number. \\
+\hline
+\mbox{\texttt{ out}}  & {\em pdw\+\_\+\+Bus\+Number} & \+: Bus number. \\
+\hline
+\mbox{\texttt{ out}}  & {\em pdw\+\_\+\+Base\+Address0} & \+: Base address 0 of the board \\
+\hline
+\mbox{\texttt{ out}}  & {\em pdw\+\_\+\+Base\+Address1} & \+: Base address 1 of the board \\
+\hline
+\mbox{\texttt{ out}}  & {\em pdw\+\_\+\+Base\+Address2} & \+: Base address 2 of the board \\
+\hline
+\mbox{\texttt{ out}}  & {\em pb\+\_\+\+Interrupt} & \+: Interrupt line of the board \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 \+: No error ~\newline
+ -\/1 \+: Unable to open the board via index ~\newline
+ -\/2 \+: Error when calling driver\textquotesingle{}s I\+O\+C\+TL ~\newline
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___general_gadfb2a5aff9ca05e58de6336f8b29e8c7}\label{group___general_gadfb2a5aff9ca05e58de6336f8b29e8c7}} 
+\index{xPCI-\/1500 general functions@{xPCI-\/1500 general functions}!i\_PCI1500\_ClearInterruptFIFO@{i\_PCI1500\_ClearInterruptFIFO}}
+\index{i\_PCI1500\_ClearInterruptFIFO@{i\_PCI1500\_ClearInterruptFIFO}!xPCI-\/1500 general functions@{xPCI-\/1500 general functions}}
+\subsubsection{\texorpdfstring{i\_PCI1500\_ClearInterruptFIFO()}{i\_PCI1500\_ClearInterruptFIFO()}}
+{\footnotesize\ttfamily I\+NT i\+\_\+\+P\+C\+I1500\+\_\+\+Clear\+Interrupt\+F\+I\+FO (\begin{DoxyParamCaption}\item[{H\+A\+N\+D\+LE}]{h\+\_\+\+Device\+Handle }\end{DoxyParamCaption})}
+
+Clear the Interrupt fifo
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em h\+\_\+\+Device\+Handle} & \+: Handle of the board \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 \+: No error ~\newline
+ -\/1 \+: Error when calling driver\textquotesingle{}s I\+O\+C\+TL ~\newline
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___general_ga19e029e65407a4d996303cae78f0fac9}\label{group___general_ga19e029e65407a4d996303cae78f0fac9}} 
+\index{xPCI-\/1500 general functions@{xPCI-\/1500 general functions}!i\_PCI1500\_GetSerialNumber@{i\_PCI1500\_GetSerialNumber}}
+\index{i\_PCI1500\_GetSerialNumber@{i\_PCI1500\_GetSerialNumber}!xPCI-\/1500 general functions@{xPCI-\/1500 general functions}}
+\subsubsection{\texorpdfstring{i\_PCI1500\_GetSerialNumber()}{i\_PCI1500\_GetSerialNumber()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+P\+C\+I1500\+\_\+\+Get\+Serial\+Number (\begin{DoxyParamCaption}\item[{H\+A\+N\+D\+LE}]{h\+\_\+\+Device\+Handle,  }\item[{D\+W\+O\+RD $\ast$}]{pdw\+\_\+\+Serial\+Number }\end{DoxyParamCaption})}
+
+Return the serial number of the board.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em h\+\_\+\+Device\+Handle} & \+: Handle of the board\\
+\hline
+\mbox{\texttt{ out}}  & {\em pdw\+\_\+\+Serial\+Number} & \+: Serial number of the board in decimal \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & \+: No Error ~\newline
+\\
+\hline
+{\em -\/1} & \+: timeout ~\newline
+\\
+\hline
+{\em -\/100} & \+: Error while calling I\+O\+C\+TL function ~\newline
+\\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___general_ga7d7f2ed79ea2bfb214860383b71b475b}\label{group___general_ga7d7f2ed79ea2bfb214860383b71b475b}} 
+\index{xPCI-\/1500 general functions@{xPCI-\/1500 general functions}!i\_PCI1500\_GetFirmwareVersion@{i\_PCI1500\_GetFirmwareVersion}}
+\index{i\_PCI1500\_GetFirmwareVersion@{i\_PCI1500\_GetFirmwareVersion}!xPCI-\/1500 general functions@{xPCI-\/1500 general functions}}
+\subsubsection{\texorpdfstring{i\_PCI1500\_GetFirmwareVersion()}{i\_PCI1500\_GetFirmwareVersion()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+P\+C\+I1500\+\_\+\+Get\+Firmware\+Version (\begin{DoxyParamCaption}\item[{H\+A\+N\+D\+LE}]{h\+\_\+\+Device\+Handle,  }\item[{P\+D\+W\+O\+RD}]{pdw\+\_\+\+Firmware\+Version }\end{DoxyParamCaption})}
+
+Return the firmware version of the board.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em h\+\_\+\+Device\+Handle} & \+: Handle of the board\\
+\hline
+\mbox{\texttt{ out}}  & {\em pdw\+\_\+\+Firmware\+Version} & \+: Firmware Version of the Board Contains the 4 A\+S\+C\+II codes of the configuration \begin{DoxyItemize}
+\item bits 0 -\/$>$ 7 A\+S\+C\+II code (version low) \item bits 8 -\/$>$ 15 A\+S\+C\+II code (version high) \item bits 16 -\/$>$ 23 A\+S\+C\+II code (functionality name second digit) \item bits 24 -\/$>$ 31 A\+S\+C\+II code (functionality name first digit) \item to read them select one of the four bits and print it using a char printf(\char`\"{}\%c\char`\"{}, ) \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & \+: No Error ~\newline
+\\
+\hline
+{\em -\/1} & \+: timeout ~\newline
+\\
+\hline
+{\em -\/100} & \+: Error while calling I\+O\+C\+TL function ~\newline
+\\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___general_gaccd171046bb08480b01e7ea61b5fca12}\label{group___general_gaccd171046bb08480b01e7ea61b5fca12}} 
+\index{xPCI-\/1500 general functions@{xPCI-\/1500 general functions}!i\_PCI1500\_SetSerialNumber@{i\_PCI1500\_SetSerialNumber}}
+\index{i\_PCI1500\_SetSerialNumber@{i\_PCI1500\_SetSerialNumber}!xPCI-\/1500 general functions@{xPCI-\/1500 general functions}}
+\subsubsection{\texorpdfstring{i\_PCI1500\_SetSerialNumber()}{i\_PCI1500\_SetSerialNumber()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+P\+C\+I1500\+\_\+\+Set\+Serial\+Number (\begin{DoxyParamCaption}\item[{H\+A\+N\+D\+LE}]{h\+\_\+\+Device\+Handle,  }\item[{D\+W\+O\+RD}]{dw\+\_\+\+Serial\+Number }\end{DoxyParamCaption})}
+
+Set the serial number of the board.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em h\+\_\+\+Device\+Handle} & \+: Handle of the board\\
+\hline
+\mbox{\texttt{ in}}  & {\em dw\+\_\+\+Serial\+Number} & \+: Serial number of the board in decimal \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & \+: No Error ~\newline
+\\
+\hline
+{\em -\/1} & \+: timeout ~\newline
+\\
+\hline
+{\em -\/100} & \+: Error while calling I\+O\+C\+TL function ~\newline
+\\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___general_gaf36014f444cdd1c38c391b145e9dce02}\label{group___general_gaf36014f444cdd1c38c391b145e9dce02}} 
+\index{xPCI-\/1500 general functions@{xPCI-\/1500 general functions}!i\_PCI1500\_OpenBoardViaIndex@{i\_PCI1500\_OpenBoardViaIndex}}
+\index{i\_PCI1500\_OpenBoardViaIndex@{i\_PCI1500\_OpenBoardViaIndex}!xPCI-\/1500 general functions@{xPCI-\/1500 general functions}}
+\subsubsection{\texorpdfstring{i\_PCI1500\_OpenBoardViaIndex()}{i\_PCI1500\_OpenBoardViaIndex()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+P\+C\+I1500\+\_\+\+Open\+Board\+Via\+Index (\begin{DoxyParamCaption}\item[{B\+Y\+TE}]{b\+\_\+\+Board\+Index,  }\item[{P\+H\+A\+N\+D\+LE}]{ph\+\_\+\+Device\+Handle }\end{DoxyParamCaption})}
+
+Open the board with the index \+: b\+\_\+\+Board\+Index. A handle is returned to the ~\newline
+
+
+user which allows to use the driver functions. ~\newline
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Board\+Index} & \+: Index of the board to open\\
+\hline
+\mbox{\texttt{ out}}  & {\em ph\+\_\+\+Device\+Handle} & \+: Handle of the selected x\+P\+C\+I-\/1500 board for using the functions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 \+: No error ~\newline
+ -\/1 \+: Unable to get the number of available boards ~\newline
+
+\end{DoxyReturn}
+-\/2 \+: Wrong device index parameter. The parameter is too high ~\newline
+ -\/3 \+: Error while getting the device\textquotesingle{}s class ~\newline
+ -\/4 \+: Error while getting informations about the device ~\newline
+ -\/5 \+: Memory allocation error ~\newline
+ -\/6 \+: Get device interface detail error ~\newline
+ -\/7 \+: Error while creating communication handle ~\newline
+ -\/8 \+: Error in the initialization callback function ~\newline
+\mbox{\Hypertarget{group___general_gaf9f936b30e3104527a05a668d4b05b8c}\label{group___general_gaf9f936b30e3104527a05a668d4b05b8c}} 
+\index{xPCI-\/1500 general functions@{xPCI-\/1500 general functions}!i\_PCI1500\_OpenBoardViaIdentifier@{i\_PCI1500\_OpenBoardViaIdentifier}}
+\index{i\_PCI1500\_OpenBoardViaIdentifier@{i\_PCI1500\_OpenBoardViaIdentifier}!xPCI-\/1500 general functions@{xPCI-\/1500 general functions}}
+\subsubsection{\texorpdfstring{i\_PCI1500\_OpenBoardViaIdentifier()}{i\_PCI1500\_OpenBoardViaIdentifier()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+P\+C\+I1500\+\_\+\+Open\+Board\+Via\+Identifier (\begin{DoxyParamCaption}\item[{P\+C\+H\+AR}]{pc\+\_\+\+Identifier,  }\item[{P\+H\+A\+N\+D\+LE}]{ph\+\_\+\+Device\+Handle }\end{DoxyParamCaption})}
+
+Open the board with the indentifier \+: pc\+\_\+\+Identifier. A handle is returned to the ~\newline
+
+
+user which allows to use the following functions. ~\newline
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pc\+\_\+\+Identifier} & \+: Identifier of the board to open \\
+\hline
+\mbox{\texttt{ out}}  & {\em ph\+\_\+\+Device\+Handle} & \+: Handle of the board x\+P\+C\+I-\/1500 for using the functions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 \+: No Error ~\newline
+ -\/1 \+: Unable to get the number of available boards ~\newline
+
+\end{DoxyReturn}
+-\/2 \+: Unable to get the board identifier ~\newline
+ -\/3 \+: Unable to open the board ~\newline
+ -\/4 \+: Identifier not found ~\newline
+\mbox{\Hypertarget{group___general_gae1dbe5b9d73f401370318ea684796b68}\label{group___general_gae1dbe5b9d73f401370318ea684796b68}} 
+\index{xPCI-\/1500 general functions@{xPCI-\/1500 general functions}!i\_PCI1500\_CloseBoard@{i\_PCI1500\_CloseBoard}}
+\index{i\_PCI1500\_CloseBoard@{i\_PCI1500\_CloseBoard}!xPCI-\/1500 general functions@{xPCI-\/1500 general functions}}
+\subsubsection{\texorpdfstring{i\_PCI1500\_CloseBoard()}{i\_PCI1500\_CloseBoard()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+P\+C\+I1500\+\_\+\+Close\+Board (\begin{DoxyParamCaption}\item[{H\+A\+N\+D\+LE}]{h\+\_\+\+Device\+Handle }\end{DoxyParamCaption})}
+
+Release the handle of the board. Block the access to the board.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em h\+\_\+\+Device\+Handle} & \+: Handle of the board\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 \+: No Error ~\newline
+ -\/1 \+: The device handle parameter is wrong ~\newline
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___general_ga0ddc2b5875603b239ed35ff451099799}\label{group___general_ga0ddc2b5875603b239ed35ff451099799}} 
+\index{xPCI-\/1500 general functions@{xPCI-\/1500 general functions}!i\_PCI1500\_GetDLLVersion@{i\_PCI1500\_GetDLLVersion}}
+\index{i\_PCI1500\_GetDLLVersion@{i\_PCI1500\_GetDLLVersion}!xPCI-\/1500 general functions@{xPCI-\/1500 general functions}}
+\subsubsection{\texorpdfstring{i\_PCI1500\_GetDLLVersion()}{i\_PCI1500\_GetDLLVersion()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+P\+C\+I1500\+\_\+\+Get\+D\+L\+L\+Version (\begin{DoxyParamCaption}\item[{P\+D\+W\+O\+RD}]{pdw\+\_\+\+Version }\end{DoxyParamCaption})}
+
+Return the version of the D\+LL.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em pdw\+\_\+\+Version} & \+: Version. sample \+: 0x01010910 -\/$>$ version 1.\+01 september 2010\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 \+: No Error ~\newline
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___general_ga6f3015889b492606932ba26a945b918c}\label{group___general_ga6f3015889b492606932ba26a945b918c}} 
+\index{xPCI-\/1500 general functions@{xPCI-\/1500 general functions}!i\_PCI1500\_GetDeviceDriverVersion@{i\_PCI1500\_GetDeviceDriverVersion}}
+\index{i\_PCI1500\_GetDeviceDriverVersion@{i\_PCI1500\_GetDeviceDriverVersion}!xPCI-\/1500 general functions@{xPCI-\/1500 general functions}}
+\subsubsection{\texorpdfstring{i\_PCI1500\_GetDeviceDriverVersion()}{i\_PCI1500\_GetDeviceDriverVersion()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+P\+C\+I1500\+\_\+\+Get\+Device\+Driver\+Version (\begin{DoxyParamCaption}\item[{H\+A\+N\+D\+LE}]{h\+\_\+\+Device\+Handle,  }\item[{P\+D\+W\+O\+RD}]{pdw\+\_\+\+Version }\end{DoxyParamCaption})}
+
+Return the version of the device driver.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em h\+\_\+\+Device\+Handle} & \+: Handle of the board\\
+\hline
+\mbox{\texttt{ out}}  & {\em pdw\+\_\+\+Version} & \+: Version. sample \+: 0x01011211 -\/$>$ version 1.\+01 -\/ 12/2011 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 \+: No Error ~\newline
+
+\end{DoxyReturn}
+-\/1 \+: Error while calling I\+O\+C\+TL function ~\newline

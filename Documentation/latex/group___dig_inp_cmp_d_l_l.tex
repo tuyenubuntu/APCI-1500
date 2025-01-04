@@ -1,0 +1,104 @@
+\hypertarget{group___dig_inp_cmp_d_l_l}{}\section{Digital inputs}
+\label{group___dig_inp_cmp_d_l_l}\index{Digital inputs@{Digital inputs}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___dig_inp_cmp_d_l_l_ga10694390c9c944cb6122847898245d1a}{i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Read1\+Digital\+Input}} (B\+Y\+T\+E\+\_\+ b\+\_\+\+Board\+Handle, B\+Y\+TE b\+\_\+\+Channel, P\+B\+Y\+T\+E\+\_\+ pb\+\_\+\+Channel\+Value)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___dig_inp_cmp_d_l_l_ga380030abf1d218bfec0322368b8be59c}{i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Read8\+Digital\+Input}} (B\+Y\+T\+E\+\_\+ b\+\_\+\+Board\+Handle, B\+Y\+T\+E\+\_\+ b\+\_\+\+Port, P\+B\+Y\+TE pb\+\_\+\+Port\+Value)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___dig_inp_cmp_d_l_l_ga346323c601e2ec09a00266986080f870}{i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Read16\+Digital\+Input}} (B\+Y\+T\+E\+\_\+ b\+\_\+\+Board\+Handle, P\+L\+O\+N\+G\+\_\+ pl\+\_\+\+Input\+Value)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group___dig_inp_cmp_d_l_l_ga10694390c9c944cb6122847898245d1a}\label{group___dig_inp_cmp_d_l_l_ga10694390c9c944cb6122847898245d1a}} 
+\index{Digital inputs@{Digital inputs}!i\_APCI1500\_Read1DigitalInput@{i\_APCI1500\_Read1DigitalInput}}
+\index{i\_APCI1500\_Read1DigitalInput@{i\_APCI1500\_Read1DigitalInput}!Digital inputs@{Digital inputs}}
+\subsubsection{\texorpdfstring{i\_APCI1500\_Read1DigitalInput()}{i\_APCI1500\_Read1DigitalInput()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Read1\+Digital\+Input (\begin{DoxyParamCaption}\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Board\+Handle,  }\item[{B\+Y\+TE}]{b\+\_\+\+Channel,  }\item[{P\+B\+Y\+T\+E\+\_\+}]{pb\+\_\+\+Channel\+Value }\end{DoxyParamCaption})}
+
+Read 1 digital inputs of the board A\+P\+C\+I-\/1500
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Board\+Handle} & Handle of the board \\
+\hline
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Channel} & The index of the channel to read (0 to 15) \\
+\hline
+\mbox{\texttt{ out}}  & {\em pb\+\_\+\+Channel\+Value} & Status of the digital input\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & \+: No Error \\
+\hline
+{\em -\/1} & \+: The b\+\_\+\+Board\+Handle parameter of the board is wrong \\
+\hline
+{\em -\/2} & \+: Channel number is not between 1 and 16 \\
+\hline
+{\em -\/102} & \+: Error while calling I\+O\+C\+TL function (wrong handle ?) \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___dig_inp_cmp_d_l_l_ga380030abf1d218bfec0322368b8be59c}\label{group___dig_inp_cmp_d_l_l_ga380030abf1d218bfec0322368b8be59c}} 
+\index{Digital inputs@{Digital inputs}!i\_APCI1500\_Read8DigitalInput@{i\_APCI1500\_Read8DigitalInput}}
+\index{i\_APCI1500\_Read8DigitalInput@{i\_APCI1500\_Read8DigitalInput}!Digital inputs@{Digital inputs}}
+\subsubsection{\texorpdfstring{i\_APCI1500\_Read8DigitalInput()}{i\_APCI1500\_Read8DigitalInput()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Read8\+Digital\+Input (\begin{DoxyParamCaption}\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Board\+Handle,  }\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Port,  }\item[{P\+B\+Y\+TE}]{pb\+\_\+\+Port\+Value }\end{DoxyParamCaption})}
+
+Read 8 digital inputs of the board A\+P\+C\+I-\/1500
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Board\+Handle} & Handle of the board \\
+\hline
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Port} & Port to read (1 or 2) \\
+\hline
+\mbox{\texttt{ out}}  & {\em pb\+\_\+\+Port\+Value} & Status of the digital inputs (0 to 255)\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & \+: No Error ~\newline
+\\
+\hline
+{\em -\/1} & \+: The handle parameter of the board is wrong ~\newline
+\\
+\hline
+{\em -\/2} & \+: Port number is not 1 or 2 ~\newline
+\\
+\hline
+{\em -\/102} & \+: Error while calling I\+O\+C\+TL function (wrong handle ?)~\newline
+\\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___dig_inp_cmp_d_l_l_ga346323c601e2ec09a00266986080f870}\label{group___dig_inp_cmp_d_l_l_ga346323c601e2ec09a00266986080f870}} 
+\index{Digital inputs@{Digital inputs}!i\_APCI1500\_Read16DigitalInput@{i\_APCI1500\_Read16DigitalInput}}
+\index{i\_APCI1500\_Read16DigitalInput@{i\_APCI1500\_Read16DigitalInput}!Digital inputs@{Digital inputs}}
+\subsubsection{\texorpdfstring{i\_APCI1500\_Read16DigitalInput()}{i\_APCI1500\_Read16DigitalInput()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Read16\+Digital\+Input (\begin{DoxyParamCaption}\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Board\+Handle,  }\item[{P\+L\+O\+N\+G\+\_\+}]{pl\+\_\+\+Input\+Value }\end{DoxyParamCaption})}
+
+Read 16 digital inputs of the board A\+P\+C\+I-\/1500
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Board\+Handle} & Handle of the board \\
+\hline
+\mbox{\texttt{ out}}  & {\em pl\+\_\+\+Input\+Value} & Status of the digital inputs\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & \+: No Error ~\newline
+\\
+\hline
+{\em -\/1} & \+: The handle parameter of the board is wrong ~\newline
+\\
+\hline
+{\em -\/101} & \+: Error while calling I\+O\+C\+TL function (wrong handle ?) ~\newline
+\\
+\hline
+\end{DoxyRetVals}

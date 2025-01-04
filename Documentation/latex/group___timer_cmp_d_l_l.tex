@@ -1,0 +1,53 @@
+\hypertarget{group___timer_cmp_d_l_l}{}\section{A\+P\+C\+I-\/1500 timer/counter/watchdog functions}
+\label{group___timer_cmp_d_l_l}\index{APCI-\/1500 timer/counter/watchdog functions@{APCI-\/1500 timer/counter/watchdog functions}}
+\subsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___timer1_cmp_d_l_l}{Timer Counter 1}}
+\item 
+\mbox{\hyperlink{group___timer2_cmp_d_l_l}{Timer Counter 2}}
+\item 
+\mbox{\hyperlink{group___timer3_cmp_d_l_l}{Watchdog Counter 3}}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___timer_cmp_d_l_l_gaf6371afb6197977e2bd018280519bbca}{i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Init\+Timer\+Input\+Clock}} (B\+Y\+T\+E\+\_\+ b\+\_\+\+Board\+Handle, B\+Y\+T\+E\+\_\+ b\+\_\+\+Input\+Clock\+Select)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group___timer_cmp_d_l_l_gaf6371afb6197977e2bd018280519bbca}\label{group___timer_cmp_d_l_l_gaf6371afb6197977e2bd018280519bbca}} 
+\index{APCI-\/1500 timer/counter/watchdog functions@{APCI-\/1500 timer/counter/watchdog functions}!i\_APCI1500\_InitTimerInputClock@{i\_APCI1500\_InitTimerInputClock}}
+\index{i\_APCI1500\_InitTimerInputClock@{i\_APCI1500\_InitTimerInputClock}!APCI-\/1500 timer/counter/watchdog functions@{APCI-\/1500 timer/counter/watchdog functions}}
+\subsubsection{\texorpdfstring{i\_APCI1500\_InitTimerInputClock()}{i\_APCI1500\_InitTimerInputClock()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Init\+Timer\+Input\+Clock (\begin{DoxyParamCaption}\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Board\+Handle,  }\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Input\+Clock\+Select }\end{DoxyParamCaption})}
+
+Initializes the input clock used for timers and watchdog
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Board\+Handle} & Handle of the board \\
+\hline
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Input\+Clock\+Select} & Clock selection \begin{DoxyItemize}
+\item {\bfseries{A\+P\+C\+I1500\+\_\+115\+\_\+\+K\+HZ}} =$>$ 115,2k\+Hz \item {\bfseries{A\+P\+C\+I1500\+\_\+3\+\_\+6\+\_\+\+K\+HZ}} =$>$ 3,6k\+Hz \item {\bfseries{A\+P\+C\+I1500\+\_\+1\+\_\+8\+\_\+\+K\+HZ}} =$>$ 1,8k\+Hz \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & \+: No Error ~\newline
+\\
+\hline
+{\em -\/1} & \+: The handle parameter of the board is wrong \\
+\hline
+{\em -\/2} & \+: The selected clock index is wrong ~\newline
+\\
+\hline
+{\em -\/102} & \+: Error while calling I\+O\+C\+TL function (wrong handle ?) ~\newline
+\\
+\hline
+\end{DoxyRetVals}

@@ -1,0 +1,144 @@
+\hypertarget{group___timer2}{}\section{Timer Counter 2}
+\label{group___timer2}\index{Timer Counter 2@{Timer Counter 2}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___timer2_ga4c89517b65ab584d8616c8d7e3605f37}{i\+\_\+\+P\+C\+I1500\+\_\+\+Init\+Timer\+Counter2}} (H\+A\+N\+D\+LE h\+\_\+\+Device\+Handle, B\+Y\+TE b\+\_\+\+Component\+Mode, W\+O\+RD w\+\_\+\+Reload\+Value, B\+Y\+TE b\+\_\+\+Enable\+Continuous\+Cycle, B\+Y\+TE b\+\_\+\+Enable\+Hardware\+Trigger, B\+Y\+TE b\+\_\+\+Enable\+Hardware\+Gate, B\+Y\+TE b\+\_\+\+Enable\+Interrupt)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___timer2_ga4520405a4872e8bb622f4da64a7665e1}{i\+\_\+\+P\+C\+I1500\+\_\+\+Start\+Timer\+Counter2}} (H\+A\+N\+D\+LE h\+\_\+\+Device\+Handle)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___timer2_ga3de61f65cc00dc5a002bec74add4f647}{i\+\_\+\+P\+C\+I1500\+\_\+\+Stop\+Timer\+Counter2}} (H\+A\+N\+D\+LE h\+\_\+\+Device\+Handle)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___timer2_ga4a27cc728f1fc728bda7fcad39d458b8}{i\+\_\+\+P\+C\+I1500\+\_\+\+Trigger\+Timer\+Counter2}} (H\+A\+N\+D\+LE h\+\_\+\+Device\+Handle)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___timer2_ga3e06d8298ba00f3652eb97082c7a5ea7}{i\+\_\+\+P\+C\+I1500\+\_\+\+Read\+Timer\+Counter2}} (H\+A\+N\+D\+LE h\+\_\+\+Device\+Handle, P\+W\+O\+RD pw\+\_\+\+Timer\+Value)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group___timer2_ga4c89517b65ab584d8616c8d7e3605f37}\label{group___timer2_ga4c89517b65ab584d8616c8d7e3605f37}} 
+\index{Timer Counter 2@{Timer Counter 2}!i\_PCI1500\_InitTimerCounter2@{i\_PCI1500\_InitTimerCounter2}}
+\index{i\_PCI1500\_InitTimerCounter2@{i\_PCI1500\_InitTimerCounter2}!Timer Counter 2@{Timer Counter 2}}
+\subsubsection{\texorpdfstring{i\_PCI1500\_InitTimerCounter2()}{i\_PCI1500\_InitTimerCounter2()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+P\+C\+I1500\+\_\+\+Init\+Timer\+Counter2 (\begin{DoxyParamCaption}\item[{H\+A\+N\+D\+LE}]{h\+\_\+\+Device\+Handle,  }\item[{B\+Y\+TE}]{b\+\_\+\+Component\+Mode,  }\item[{W\+O\+RD}]{w\+\_\+\+Reload\+Value,  }\item[{B\+Y\+TE}]{b\+\_\+\+Enable\+Continuous\+Cycle,  }\item[{B\+Y\+TE}]{b\+\_\+\+Enable\+Hardware\+Trigger,  }\item[{B\+Y\+TE}]{b\+\_\+\+Enable\+Hardware\+Gate,  }\item[{B\+Y\+TE}]{b\+\_\+\+Enable\+Interrupt }\end{DoxyParamCaption})}
+
+Initializes the component 2 as a timer or a counter. ~\newline
+ {\bfseries{Important!}} The timer component internally operates with half of the input frequency. ~\newline
+ If the timer is set as a timer, the time period is defined by (2$\ast$w\+\_\+\+Reload\+Value)/\+Input\+Clock, where Input\+Clock is the value of the input clock in Hz. ~\newline
+ ~\newline
+ This timer/counter supports hardware trigger, i.\+e. the value is reloaded if the trigger input is high. ~\newline
+ This timer/counter also supports hardware gate, i.\+e. the timer is only counting if the gate input is high. ~\newline
+ ~\newline
+ If the counter is used, input 10 acts as the counter input ~\newline
+ If the hardware trigger is enabled, input 11 acts as the trigger input ~\newline
+ If the hardware gate is enabled, input 12 acts as the gate input ~\newline
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em h\+\_\+\+Device\+Handle} & Handle of the board \\
+\hline
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Component\+Mode} & Selects the component mode ( {\bfseries{P\+C\+I1500\+\_\+\+T\+I\+M\+ER}} or {\bfseries{P\+C\+I1500\+\_\+\+C\+O\+U\+N\+T\+ER}} ) \\
+\hline
+\mbox{\texttt{ in}}  & {\em w\+\_\+\+Reload\+Value} & Defines the starting value of the timer \\
+\hline
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Enable\+Continuous\+Cycle} & Reset the timer to us\+\_\+\+Reload\+Value after each interrupt, and continue counting (0,1) \\
+\hline
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Enable\+Hardware\+Trigger} & Enable the hardware trigger on pin 11 (0,1) \\
+\hline
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Enable\+Hardware\+Gate} & Enable the hardware gate on pin 12 (0,1) \\
+\hline
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Enable\+Interrupt} & An interrupt is generated each time the timer or counter expires (0,1)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 \+: No Error ~\newline
+ -\/1 \+: Invalid mode ~\newline
+ -\/2 \+: Wrong device handle ~\newline
+ -\/3 \+: Error while calling I\+O\+C\+TL function (wrong handle ?) ~\newline
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___timer2_ga4520405a4872e8bb622f4da64a7665e1}\label{group___timer2_ga4520405a4872e8bb622f4da64a7665e1}} 
+\index{Timer Counter 2@{Timer Counter 2}!i\_PCI1500\_StartTimerCounter2@{i\_PCI1500\_StartTimerCounter2}}
+\index{i\_PCI1500\_StartTimerCounter2@{i\_PCI1500\_StartTimerCounter2}!Timer Counter 2@{Timer Counter 2}}
+\subsubsection{\texorpdfstring{i\_PCI1500\_StartTimerCounter2()}{i\_PCI1500\_StartTimerCounter2()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+P\+C\+I1500\+\_\+\+Start\+Timer\+Counter2 (\begin{DoxyParamCaption}\item[{H\+A\+N\+D\+LE}]{h\+\_\+\+Device\+Handle }\end{DoxyParamCaption})}
+
+Starts the counter timer 2 as a timer or a counter (depending on how you initialized it)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em h\+\_\+\+Device\+Handle} & Handle of the board\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 \+: No Error ~\newline
+ -\/1 \+: Wrong device handle ~\newline
+ -\/2 \+: The component is still started, stop it before trying to restart it ~\newline
+ -\/3 \+: The component is not initialized ~\newline
+ -\/4 \+: Error while calling I\+O\+C\+TL function (wrong handle ?) ~\newline
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___timer2_ga3de61f65cc00dc5a002bec74add4f647}\label{group___timer2_ga3de61f65cc00dc5a002bec74add4f647}} 
+\index{Timer Counter 2@{Timer Counter 2}!i\_PCI1500\_StopTimerCounter2@{i\_PCI1500\_StopTimerCounter2}}
+\index{i\_PCI1500\_StopTimerCounter2@{i\_PCI1500\_StopTimerCounter2}!Timer Counter 2@{Timer Counter 2}}
+\subsubsection{\texorpdfstring{i\_PCI1500\_StopTimerCounter2()}{i\_PCI1500\_StopTimerCounter2()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+P\+C\+I1500\+\_\+\+Stop\+Timer\+Counter2 (\begin{DoxyParamCaption}\item[{H\+A\+N\+D\+LE}]{h\+\_\+\+Device\+Handle }\end{DoxyParamCaption})}
+
+Stops the counter timer 2
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em h\+\_\+\+Device\+Handle} & Handle of the board\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 \+: No Error ~\newline
+ -\/1 \+: Wrong device handle ~\newline
+ -\/2 \+: Nothing is started on the component (so nothing to stop) ~\newline
+ -\/3 \+: Error while calling I\+O\+C\+TL function (wrong handle ?) ~\newline
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___timer2_ga4a27cc728f1fc728bda7fcad39d458b8}\label{group___timer2_ga4a27cc728f1fc728bda7fcad39d458b8}} 
+\index{Timer Counter 2@{Timer Counter 2}!i\_PCI1500\_TriggerTimerCounter2@{i\_PCI1500\_TriggerTimerCounter2}}
+\index{i\_PCI1500\_TriggerTimerCounter2@{i\_PCI1500\_TriggerTimerCounter2}!Timer Counter 2@{Timer Counter 2}}
+\subsubsection{\texorpdfstring{i\_PCI1500\_TriggerTimerCounter2()}{i\_PCI1500\_TriggerTimerCounter2()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+P\+C\+I1500\+\_\+\+Trigger\+Timer\+Counter2 (\begin{DoxyParamCaption}\item[{H\+A\+N\+D\+LE}]{h\+\_\+\+Device\+Handle }\end{DoxyParamCaption})}
+
+Triggers the counter timer 2, resetting its value
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em h\+\_\+\+Device\+Handle} & Handle of the board\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 \+: No Error ~\newline
+ -\/1 \+: Wrong device handle ~\newline
+ -\/2 \+: Nothing is started on the component (so nothing to trigger) ~\newline
+ -\/3 \+: Error while calling I\+O\+C\+TL function (wrong handle ?) ~\newline
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___timer2_ga3e06d8298ba00f3652eb97082c7a5ea7}\label{group___timer2_ga3e06d8298ba00f3652eb97082c7a5ea7}} 
+\index{Timer Counter 2@{Timer Counter 2}!i\_PCI1500\_ReadTimerCounter2@{i\_PCI1500\_ReadTimerCounter2}}
+\index{i\_PCI1500\_ReadTimerCounter2@{i\_PCI1500\_ReadTimerCounter2}!Timer Counter 2@{Timer Counter 2}}
+\subsubsection{\texorpdfstring{i\_PCI1500\_ReadTimerCounter2()}{i\_PCI1500\_ReadTimerCounter2()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+P\+C\+I1500\+\_\+\+Read\+Timer\+Counter2 (\begin{DoxyParamCaption}\item[{H\+A\+N\+D\+LE}]{h\+\_\+\+Device\+Handle,  }\item[{P\+W\+O\+RD}]{pw\+\_\+\+Timer\+Value }\end{DoxyParamCaption})}
+
+Reads the timer 2 current value
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em h\+\_\+\+Device\+Handle} & Handle of the board \\
+\hline
+\mbox{\texttt{ out}}  & {\em pw\+\_\+\+Timer\+Value} & Current value of the counter timer\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 \+: No Error ~\newline
+ -\/1 \+: Wrong device handle ~\newline
+ -\/2 \+: Nothing is started on the component (so nothing to read) ~\newline
+ -\/3 \+: Error while calling I\+O\+C\+TL function (wrong handle ?) ~\newline
+
+\end{DoxyReturn}

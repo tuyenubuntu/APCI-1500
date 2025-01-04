@@ -1,0 +1,51 @@
+\hypertarget{group___dig_out_memory}{}\section{Digital output memory}
+\label{group___dig_out_memory}\index{Digital output memory@{Digital output memory}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___dig_out_memory_ga0bb1f9792ea013420ae616f9e223e1e5}{i\+\_\+\+P\+C\+I1500\+\_\+\+Set\+Digital\+Output\+Memory\+On}} (H\+A\+N\+D\+LE h\+\_\+\+Device\+Handle)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___dig_out_memory_ga46554567f47286eb28382a0d77cfbc23}{i\+\_\+\+P\+C\+I1500\+\_\+\+Set\+Digital\+Output\+Memory\+Off}} (H\+A\+N\+D\+LE h\+\_\+\+Device\+Handle)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group___dig_out_memory_ga0bb1f9792ea013420ae616f9e223e1e5}\label{group___dig_out_memory_ga0bb1f9792ea013420ae616f9e223e1e5}} 
+\index{Digital output memory@{Digital output memory}!i\_PCI1500\_SetDigitalOutputMemoryOn@{i\_PCI1500\_SetDigitalOutputMemoryOn}}
+\index{i\_PCI1500\_SetDigitalOutputMemoryOn@{i\_PCI1500\_SetDigitalOutputMemoryOn}!Digital output memory@{Digital output memory}}
+\subsubsection{\texorpdfstring{i\_PCI1500\_SetDigitalOutputMemoryOn()}{i\_PCI1500\_SetDigitalOutputMemoryOn()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+P\+C\+I1500\+\_\+\+Set\+Digital\+Output\+Memory\+On (\begin{DoxyParamCaption}\item[{H\+A\+N\+D\+LE}]{h\+\_\+\+Device\+Handle }\end{DoxyParamCaption})}
+
+Activate the digital output memory of the board x\+P\+C\+I-\/1500 When using the digital output memory, when setting the value of one digital output, the value of the other digital output is kept.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em h\+\_\+\+Device\+Handle} & Handle of the board\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 \+: No Error ~\newline
+ -\/1 \+: Error while calling I\+O\+C\+TL function (wrong handle ?) ~\newline
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___dig_out_memory_ga46554567f47286eb28382a0d77cfbc23}\label{group___dig_out_memory_ga46554567f47286eb28382a0d77cfbc23}} 
+\index{Digital output memory@{Digital output memory}!i\_PCI1500\_SetDigitalOutputMemoryOff@{i\_PCI1500\_SetDigitalOutputMemoryOff}}
+\index{i\_PCI1500\_SetDigitalOutputMemoryOff@{i\_PCI1500\_SetDigitalOutputMemoryOff}!Digital output memory@{Digital output memory}}
+\subsubsection{\texorpdfstring{i\_PCI1500\_SetDigitalOutputMemoryOff()}{i\_PCI1500\_SetDigitalOutputMemoryOff()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+P\+C\+I1500\+\_\+\+Set\+Digital\+Output\+Memory\+Off (\begin{DoxyParamCaption}\item[{H\+A\+N\+D\+LE}]{h\+\_\+\+Device\+Handle }\end{DoxyParamCaption})}
+
+Deactivate the digital output memory of the board x\+P\+C\+I-\/1500
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em h\+\_\+\+Device\+Handle} & Handle of the board\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 \+: No Error ~\newline
+ -\/1 \+: Error while calling I\+O\+C\+TL function (wrong handle ?) ~\newline
+
+\end{DoxyReturn}

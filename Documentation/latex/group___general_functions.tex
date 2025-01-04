@@ -1,0 +1,294 @@
+\hypertarget{group___general_functions}{}\section{A\+P\+C\+I-\/1500 D\+LL A\+D\+D\+I-\/\+D\+A\+TA W32-\/\+Bit Driver for x86 General functions}
+\label{group___general_functions}\index{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions@{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___general_functions_ga283828f6037ecf34146ddeba2ffa2012}{i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Init\+Compiler}} (B\+Y\+T\+E\+\_\+ b\+\_\+\+Compiler\+Define)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___general_functions_gade589c63a37eb3e97b01c64ef431f35a}{i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Check\+And\+Get\+P\+C\+I\+Slot\+Number}} (P\+B\+Y\+T\+E\+\_\+ pb\+\_\+\+Slot\+Number\+Array)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___general_functions_ga3b4e9c4d128e73120d4cd078d47eee7a}{i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Get\+Hardware\+Information}} (B\+Y\+T\+E\+\_\+ b\+\_\+\+Board\+Handle, P\+U\+I\+N\+T\+\_\+ pui\+\_\+\+Base\+Address, P\+B\+Y\+T\+E\+\_\+ pb\+\_\+\+Interrupt\+Nbr, P\+B\+Y\+T\+E\+\_\+ pb\+\_\+\+Slot\+Number)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___general_functions_ga7701648de75a39ddfb0c61085f80f84e}{i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Get\+Serial\+Number}} (B\+Y\+T\+E\+\_\+ b\+\_\+\+Board\+Handle, D\+W\+O\+RD $\ast$serial\+Number)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___general_functions_ga507b96425ffacbdab7f22b48c5119209}{i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Get\+Firmware\+Version}} (B\+Y\+T\+E\+\_\+ b\+\_\+\+Board\+Handle, D\+W\+O\+RD $\ast$firmware\+Version)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___general_functions_gadfaaf79638df473d3ef0bcd02ece2850}{i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Set\+Serial\+Number}} (B\+Y\+T\+E\+\_\+ b\+\_\+\+Board\+Handle, D\+W\+O\+RD serial\+Number)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___general_functions_ga96e68e03955a0fde4bfc02b3a6d64dce}{i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Set\+Board\+Information}} (B\+Y\+T\+E\+\_\+ b\+\_\+\+Slot\+Number\+Array, P\+B\+Y\+T\+E\+\_\+ pb\+\_\+\+Board\+Handle)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___general_functions_ga6fb479af554a572f5594396aea20c140}{i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Set\+Board\+Information\+Via\+Identifer}} (P\+C\+H\+A\+R\+\_\+ pc\+\_\+\+Identifier, P\+B\+Y\+T\+E\+\_\+ ph\+\_\+\+Device\+Handle)
+\item 
+\+\_\+\+I\+N\+T\+\_\+ \mbox{\hyperlink{group___general_functions_gacc51dee7372881d5a7db587b038044a5}{i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Close\+Board\+Handle}} (B\+Y\+T\+E\+\_\+ b\+\_\+\+Board\+Handle)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group___general_functions_ga283828f6037ecf34146ddeba2ffa2012}\label{group___general_functions_ga283828f6037ecf34146ddeba2ffa2012}} 
+\index{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions@{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions}!i\_APCI1500\_InitCompiler@{i\_APCI1500\_InitCompiler}}
+\index{i\_APCI1500\_InitCompiler@{i\_APCI1500\_InitCompiler}!APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions@{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions}}
+\subsubsection{\texorpdfstring{i\_APCI1500\_InitCompiler()}{i\_APCI1500\_InitCompiler()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Init\+Compiler (\begin{DoxyParamCaption}\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Compiler\+Define }\end{DoxyParamCaption})}
+
+This function is only available in a windows environment 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Compiler\+Define} & \+: Program Language selection.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & \+: no error~\newline
+\\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___general_functions_gade589c63a37eb3e97b01c64ef431f35a}\label{group___general_functions_gade589c63a37eb3e97b01c64ef431f35a}} 
+\index{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions@{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions}!i\_APCI1500\_CheckAndGetPCISlotNumber@{i\_APCI1500\_CheckAndGetPCISlotNumber}}
+\index{i\_APCI1500\_CheckAndGetPCISlotNumber@{i\_APCI1500\_CheckAndGetPCISlotNumber}!APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions@{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions}}
+\subsubsection{\texorpdfstring{i\_APCI1500\_CheckAndGetPCISlotNumber()}{i\_APCI1500\_CheckAndGetPCISlotNumber()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Check\+And\+Get\+P\+C\+I\+Slot\+Number (\begin{DoxyParamCaption}\item[{P\+B\+Y\+T\+E\+\_\+}]{pb\+\_\+\+Slot\+Number\+Array }\end{DoxyParamCaption})}
+
+Check all A\+P\+C\+I-\/1500 and return the slot number of each A\+P\+C\+I-\/1500 board. ~\newline
+ $\vert$ Each pb\+\_\+\+Slot\+Number\+Array member contain the slot ~\newline
+ number (1 to 8) from 1 A\+P\+C\+I-\/1500 Board. ~\newline
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pb\+\_\+\+Slot\+Number\+Array} & \+: Slot number list. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em $>$0} & \+: Number of boards found ~\newline
+\\
+\hline
+{\em 0} & \+: No board found ~\newline
+\\
+\hline
+{\em -\/101} & \+: Error while getting the number of boards ~\newline
+\\
+\hline
+{\em -\/102} & \+: Unable to open the board via index ~\newline
+\\
+\hline
+{\em -\/103} & \+: Error when calling driver\textquotesingle{}s I\+O\+C\+TL ~\newline
+\\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___general_functions_ga3b4e9c4d128e73120d4cd078d47eee7a}\label{group___general_functions_ga3b4e9c4d128e73120d4cd078d47eee7a}} 
+\index{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions@{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions}!i\_APCI1500\_GetHardwareInformation@{i\_APCI1500\_GetHardwareInformation}}
+\index{i\_APCI1500\_GetHardwareInformation@{i\_APCI1500\_GetHardwareInformation}!APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions@{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions}}
+\subsubsection{\texorpdfstring{i\_APCI1500\_GetHardwareInformation()}{i\_APCI1500\_GetHardwareInformation()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Get\+Hardware\+Information (\begin{DoxyParamCaption}\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Board\+Handle,  }\item[{P\+U\+I\+N\+T\+\_\+}]{pui\+\_\+\+Base\+Address,  }\item[{P\+B\+Y\+T\+E\+\_\+}]{pb\+\_\+\+Interrupt\+Nbr,  }\item[{P\+B\+Y\+T\+E\+\_\+}]{pb\+\_\+\+Slot\+Number }\end{DoxyParamCaption})}
+
+Get device information of the board.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Board\+Handle} & \+: Index of the board \\
+\hline
+\mbox{\texttt{ out}}  & {\em pb\+\_\+\+Slot\+Number} & \+: Slot number. \\
+\hline
+\mbox{\texttt{ out}}  & {\em pui\+\_\+\+Base\+Address} & \+: Base address of the board \\
+\hline
+\mbox{\texttt{ out}}  & {\em pb\+\_\+\+Interrupt\+Nbr} & \+: Interrupt line of the board\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & \+: No error ~\newline
+\\
+\hline
+{\em -\/1} & \+: Wrong device handle~\newline
+\\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___general_functions_ga7701648de75a39ddfb0c61085f80f84e}\label{group___general_functions_ga7701648de75a39ddfb0c61085f80f84e}} 
+\index{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions@{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions}!i\_APCI1500\_GetSerialNumber@{i\_APCI1500\_GetSerialNumber}}
+\index{i\_APCI1500\_GetSerialNumber@{i\_APCI1500\_GetSerialNumber}!APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions@{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions}}
+\subsubsection{\texorpdfstring{i\_APCI1500\_GetSerialNumber()}{i\_APCI1500\_GetSerialNumber()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Get\+Serial\+Number (\begin{DoxyParamCaption}\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Board\+Handle,  }\item[{D\+W\+O\+RD $\ast$}]{serial\+Number }\end{DoxyParamCaption})}
+
+Get serial\+Number of the board.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Board\+Handle} & \+: Index of the board \\
+\hline
+\mbox{\texttt{ out}}  & {\em serial\+Number} & \+: return the serial number of the card.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & \+: No error ~\newline
+\\
+\hline
+{\em -\/1} & \+: Wrong device handle~\newline
+\\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___general_functions_ga507b96425ffacbdab7f22b48c5119209}\label{group___general_functions_ga507b96425ffacbdab7f22b48c5119209}} 
+\index{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions@{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions}!i\_APCI1500\_GetFirmwareVersion@{i\_APCI1500\_GetFirmwareVersion}}
+\index{i\_APCI1500\_GetFirmwareVersion@{i\_APCI1500\_GetFirmwareVersion}!APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions@{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions}}
+\subsubsection{\texorpdfstring{i\_APCI1500\_GetFirmwareVersion()}{i\_APCI1500\_GetFirmwareVersion()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Get\+Firmware\+Version (\begin{DoxyParamCaption}\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Board\+Handle,  }\item[{D\+W\+O\+RD $\ast$}]{firmware\+Version }\end{DoxyParamCaption})}
+
+Get firmware\+Version of the board.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Board\+Handle} & \+: Index of the board \\
+\hline
+ & {\em \mbox{[}o\mbox{]}} & v\+\_\+\+Function\+Name \+: Address of the callback function \\
+\hline
+\mbox{\texttt{ out}}  & {\em firmware\+Version} & \+: Firmware Version of the Board Contains the 4 A\+S\+C\+II codes of the configuration ~\newline
+ {\bfseries{bits}} 0 -\/$>$ 7 A\+S\+C\+II code (version low) ~\newline
+ {\bfseries{bits}} 8 -\/$>$ 15 A\+S\+C\+II code (version high) ~\newline
+ {\bfseries{bits}} 16 -\/$>$ 23 A\+S\+C\+II code (functionality name second digit) ~\newline
+ {\bfseries{bits}} 24 -\/$>$ 31 A\+S\+C\+II code (functionality name first digit) ~\newline
+ {\bfseries{to}} read them select one of the four bits and print it using a char printf(\char`\"{}\%c\char`\"{}, )\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & \+: No error ~\newline
+\\
+\hline
+{\em -\/1} & \+: Wrong device handle~\newline
+\\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___general_functions_gadfaaf79638df473d3ef0bcd02ece2850}\label{group___general_functions_gadfaaf79638df473d3ef0bcd02ece2850}} 
+\index{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions@{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions}!i\_APCI1500\_SetSerialNumber@{i\_APCI1500\_SetSerialNumber}}
+\index{i\_APCI1500\_SetSerialNumber@{i\_APCI1500\_SetSerialNumber}!APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions@{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions}}
+\subsubsection{\texorpdfstring{i\_APCI1500\_SetSerialNumber()}{i\_APCI1500\_SetSerialNumber()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Set\+Serial\+Number (\begin{DoxyParamCaption}\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Board\+Handle,  }\item[{D\+W\+O\+RD}]{serial\+Number }\end{DoxyParamCaption})}
+
+Set serial\+Number of the board.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Board\+Handle} & \+: Index of the board \\
+\hline
+\mbox{\texttt{ in}}  & {\em serial\+Number} & \+: enter the new serial number of the card.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & \+: No error ~\newline
+\\
+\hline
+{\em -\/1} & \+: Wrong device handle~\newline
+\\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___general_functions_ga96e68e03955a0fde4bfc02b3a6d64dce}\label{group___general_functions_ga96e68e03955a0fde4bfc02b3a6d64dce}} 
+\index{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions@{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions}!i\_APCI1500\_SetBoardInformation@{i\_APCI1500\_SetBoardInformation}}
+\index{i\_APCI1500\_SetBoardInformation@{i\_APCI1500\_SetBoardInformation}!APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions@{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions}}
+\subsubsection{\texorpdfstring{i\_APCI1500\_SetBoardInformation()}{i\_APCI1500\_SetBoardInformation()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Set\+Board\+Information (\begin{DoxyParamCaption}\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Slot\+Number\+Array,  }\item[{P\+B\+Y\+T\+E\+\_\+}]{pb\+\_\+\+Board\+Handle }\end{DoxyParamCaption})}
+
+Open board with slot number.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Slot\+Number\+Array} & \+: Index of the board to open\\
+\hline
+\mbox{\texttt{ out}}  & {\em pb\+\_\+\+Board\+Handle} & \+: Handle of the selected A\+P\+C\+I-\/1500 board for using the functions \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & \+: No error ~\newline
+\\
+\hline
+{\em -\/1} & \+: Not available slot number ~\newline
+\\
+\hline
+{\em -\/101} & \+: Unable to get the number of available boards ~\newline
+\\
+\hline
+{\em -\/103} & \+: Error while getting the device\textquotesingle{}s class ~\newline
+\\
+\hline
+{\em -\/104} & \+: Error while getting informations about the device ~\newline
+\\
+\hline
+{\em -\/105} & \+: Memory allocation error ~\newline
+\\
+\hline
+{\em -\/106} & \+: Get device interface detail error ~\newline
+\\
+\hline
+{\em -\/107} & \+: Error while creating communication handle ~\newline
+\\
+\hline
+{\em -\/108} & \+: Error in the initialization callback function ~\newline
+\\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___general_functions_ga6fb479af554a572f5594396aea20c140}\label{group___general_functions_ga6fb479af554a572f5594396aea20c140}} 
+\index{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions@{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions}!i\_APCI1500\_SetBoardInformationViaIdentifer@{i\_APCI1500\_SetBoardInformationViaIdentifer}}
+\index{i\_APCI1500\_SetBoardInformationViaIdentifer@{i\_APCI1500\_SetBoardInformationViaIdentifer}!APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions@{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions}}
+\subsubsection{\texorpdfstring{i\_APCI1500\_SetBoardInformationViaIdentifer()}{i\_APCI1500\_SetBoardInformationViaIdentifer()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Set\+Board\+Information\+Via\+Identifer (\begin{DoxyParamCaption}\item[{P\+C\+H\+A\+R\+\_\+}]{pc\+\_\+\+Identifier,  }\item[{P\+B\+Y\+T\+E\+\_\+}]{ph\+\_\+\+Device\+Handle }\end{DoxyParamCaption})}
+
+Open the board with the indentifier \+: pc\+\_\+\+Identifier. A handle is returned to the ~\newline
+
+
+user which allows to use the following functions. ~\newline
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pc\+\_\+\+Identifier} & \+: Identifier of the board to open \\
+\hline
+\mbox{\texttt{ out}}  & {\em ph\+\_\+\+Device\+Handle} & \+: Handle of the board A\+P\+C\+I-\/1500 for using the functions \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & \+: No Error ~\newline
+\\
+\hline
+{\em -\/1} & \+: Not available identifier ~\newline
+\\
+\hline
+{\em -\/101} & \+: Unable to get the number of available boards ~\newline
+\\
+\hline
+{\em -\/102} & \+: Unable to get the board identifier ~\newline
+\\
+\hline
+{\em -\/103} & \+: Unable to open the board ~\newline
+\\
+\hline
+{\em -\/104} & \+: Identifier not found ~\newline
+\\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___general_functions_gacc51dee7372881d5a7db587b038044a5}\label{group___general_functions_gacc51dee7372881d5a7db587b038044a5}} 
+\index{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions@{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions}!i\_APCI1500\_CloseBoardHandle@{i\_APCI1500\_CloseBoardHandle}}
+\index{i\_APCI1500\_CloseBoardHandle@{i\_APCI1500\_CloseBoardHandle}!APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions@{APCI-\/1500 DLL ADDI-\/DATA W32-\/Bit Driver for x86 General functions}}
+\subsubsection{\texorpdfstring{i\_APCI1500\_CloseBoardHandle()}{i\_APCI1500\_CloseBoardHandle()}}
+{\footnotesize\ttfamily \+\_\+\+I\+N\+T\+\_\+ i\+\_\+\+A\+P\+C\+I1500\+\_\+\+Close\+Board\+Handle (\begin{DoxyParamCaption}\item[{B\+Y\+T\+E\+\_\+}]{b\+\_\+\+Board\+Handle }\end{DoxyParamCaption})}
+
+Release the handle of the board. Block the access to the board.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em b\+\_\+\+Board\+Handle} & \+: Handle of the board\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & \+: No Error ~\newline
+\\
+\hline
+{\em -\/1} & \+: The device handle parameter is wrong ~\newline
+\\
+\hline
+\end{DoxyRetVals}
