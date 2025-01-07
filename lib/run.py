@@ -1,10 +1,10 @@
 from pci1500 import PCI1500
 import time
 
-# Tạo đối tượng PCI1500
+# creat Ob PCI1500
 pci_device = PCI1500()
 
-# Mở board PCI1500
+# open board PCI1500
 board_handle = pci_device.open_board()
 
 # Đọc input
