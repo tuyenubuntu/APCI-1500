@@ -14,6 +14,11 @@ class PCI1500:
         self.i_PCI1500_OpenBoardViaIndex.argtypes = [ctypes.c_int, ctypes.POINTER(ctypes.c_void_p)]
         self.i_PCI1500_OpenBoardViaIndex.restype = ctypes.c_int
 
+        self.i_PCI1500_ResetBoardIntRoutine = self.pci1500.i_PCI1500_ResetBoardIntRoutine
+        self.i_PCI1500_ResetBoardIntRoutine.argtypes = [ctypes.c_void_p]  # Board handle
+        self.i_PCI1500_ResetBoardIntRoutine.restype = ctypes.c_int        # Return type (usually 0 = success)
+
+
         self.i_PCI1500_Set1DigitalOutputOn = self.pci1500.i_PCI1500_Set1DigitalOutputOn
         self.i_PCI1500_Set1DigitalOutputOn.argtypes = [ctypes.c_void_p, ctypes.c_byte]
         self.i_PCI1500_Set1DigitalOutputOn.restype = ctypes.c_int
@@ -46,6 +51,11 @@ class PCI1500:
         self.i_PCI1500_SetDigitalOutputMemoryOn.argtypes = [ctypes.c_void_p]
         self.i_PCI1500_SetDigitalOutputMemoryOn.restype = ctypes.c_int
 
+        self.i_PCI1500_Get16DigitalOutputsStatus = self.pci1500.i_PCI1500_Get16DigitalOutputsStatus
+        self.i_PCI1500_Get16DigitalOutputsStatus.argtypes = [ctypes.c_void_p, ctypes.POINTER(ctypes.c_ushort)]
+        self.i_PCI1500_Get16DigitalOutputsStatus.restype = ctypes.c_int
+
+
     def open_board(self, board_index=0):
         """
         Open PCI1500 board via index.
@@ -68,8 +78,21 @@ class PCI1500:
         """
         result = self.i_PCI1500_CloseBoard(board_handle)
         return result
+    
+    def reset_board_interrupt_routine(self, board_handle):
+        """
+        Reset the interrupt routine of the board.
+        :param board_handle: Handle of the board.
+        :return: True if success, False otherwise.
+        """
+        result = self.i_PCI1500_ResetBoardIntRoutine(board_handle)
+        if result != 0:
+            print(f"Error resetting board interrupt routine: {result}")
+            return False
+        return True
 
-    def read_inputs(self, board_handle):
+
+    def read_16_inputs_status(self, board_handle):
         """
         Read values from the 16 input channels of the PCI1500 board.
         :param board_handle: Handle of the board.
@@ -81,19 +104,53 @@ class PCI1500:
         if result != 0:
             print(f"Error reading inputs: {result}")
             return None
-        return bin(channels_value.value)[2:].zfill(16)
+        bit_string = bin(channels_value.value)[2:].zfill(16)
+        reversed_bit_string = bit_string[::-1]
+        return reversed_bit_string
+    
+    def read_inputs_status(self, board_handle, channel):
+        input_status = self.read_16_inputs_status(board_handle)[channel - 1]
+        return input_status
+
+    
+    def get_16_outputs_status(self, board_handle):
+        """
+        Get current 16 digital output status with bit order reversed.
+        :param board_handle: Handle of the board.
+        :return: 16-bit binary string representing reversed output status or None on error.
+        """
+        output_status = ctypes.c_ushort(0)
+        result = self.i_PCI1500_Get16DigitalOutputsStatus(board_handle, ctypes.byref(output_status))
+
+        if result != 0:
+            print(f"Error getting digital outputs status: {result}")
+            return None
+
+        # Convert to 16-bit binary and reverse the bit string
+        bit_string = bin(output_status.value)[2:].zfill(16)
+        reversed_bit_string = bit_string[::-1]
+
+        return reversed_bit_string
+    
+    def get_outputs_status(self, board_handle, channel):
+        output_status = self.get_16_outputs_status(board_handle)[channel - 1]
+        return output_status
+        
+
+
 
     def set_output_off(self, board_handle, channel):
         """
         Turn off output at a specific channel.
         :param board_handle: Handle of the board.
-        :param channel: Channel (0-15) to turn off the output.
+        :param channel: Channel (1-16) to turn off the output.
         :return: Error code if any, 0 if successful.
         """
-        if channel < 0 or channel > 15:
+        channels = channel -1
+        if channel < 1 or channel > 16:
             raise ValueError("Channel must be between 0 and 15")
 
-        result = self.i_PCI1500_Set1DigitalOutputOff(board_handle, ctypes.c_byte(channel))
+        result = self.i_PCI1500_Set1DigitalOutputOff(board_handle, ctypes.c_byte(channels))
 
         if result != 0:
             print(f"Error turning off output: {result}")
@@ -106,13 +163,14 @@ class PCI1500:
         """
         Turn on output at a specific channel.
         :param board_handle: Handle of the board.
-        :param channel: Channel (0-15) to turn on the output.
+        :param channel: Channel (1-16) to turn on the output.
         :return: Error code if any, 0 if successful.
         """
-        if channel < 0 or channel > 15:
+        channels = channel -1
+        if channel < 1 or channel > 16:
             raise ValueError("Channel must be between 0 and 15")
 
-        result = self.i_PCI1500_Set1DigitalOutputOn(board_handle, ctypes.c_byte(channel))
+        result = self.i_PCI1500_Set1DigitalOutputOn(board_handle, ctypes.c_byte(channels))
 
         if result != 0:
             print(f"Error turning on output: {result}")
