@@ -103,7 +103,7 @@ pci.close_board()
 - If functions return errors, refer to the PCI1500 documentation for error codes.
 - If the `PCI1500.dll` file is missing or the system lacks drivers for the IO PCI-1500 card, visit the manufacturer's website to download the correct driver (ensure the driver matches your operating system version and PCI slot type on your motherboard): [ADDI-DATA Drivers](https://www.addi-data.com/drivers).
 
-![Driver Download Instructions](APCI-1500/Documentation/pic_wrapper/driver.png) 
+![Driver Download Instructions](/Documentation/pic_wrapper/driver.png) 
 
 ## Contributing
 
