@@ -29,9 +29,11 @@ pci = APCI1500()
 
     # reset digital output
     # pci.reset_do(handle, channel)
-out_channel = 16
+out_channel = 4
 in_channel = 1
 # pci.set_do(out_channel)
+# pci.reset_do(out_channel)
+print ("result:", pci.reset_all_do())
 out_channel_val = pci.get_do(out_channel)
 print(f"Status output channel {out_channel}: {out_channel_val}")
 # in_channel_val = pci.read_di(in_channel)

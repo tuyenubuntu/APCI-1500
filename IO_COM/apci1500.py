@@ -145,6 +145,7 @@ class APCI1500:
         :param board_handle: Handle of the board.
         :return: Error code if any, 0 if successful.
         """
+        self.set_digital_output_memory(enable=True)
         result = self.i_PCI1500_Set16DigitalOutputsOff(self.board_handle, 0xFFFF)
         if result != 0:
             print(f"Error turning off all outputs: {result}")
