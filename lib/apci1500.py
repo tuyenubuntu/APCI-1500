@@ -1,7 +1,7 @@
 import ctypes
 
-class PCI1500:
-    def __init__(self, dll_path="pci1500/PCI1500.dll"):
+class APCI1500:
+    def __init__(self, dll_path="apci1500/PCI1500.dll"):
         # Load the DLL
         self.pci1500 = ctypes.WinDLL(dll_path)
         
@@ -17,6 +17,10 @@ class PCI1500:
         self.i_PCI1500_ResetBoardIntRoutine = self.pci1500.i_PCI1500_ResetBoardIntRoutine
         self.i_PCI1500_ResetBoardIntRoutine.argtypes = [ctypes.c_void_p]  # Board handle
         self.i_PCI1500_ResetBoardIntRoutine.restype = ctypes.c_int        # Return type (usually 0 = success)
+
+        self.i_PCI1500_Read1DigitalInput = self.pci1500.i_PCI1500_Read1DigitalInput
+        self.i_PCI1500_Read1DigitalInput.argtypes = [ctypes.c_void_p, ctypes.c_ubyte, ctypes.POINTER(ctypes.c_ubyte)]
+        self.i_PCI1500_Read1DigitalInput.restype = ctypes.c_int
 
 
         self.i_PCI1500_Set1DigitalOutputOn = self.pci1500.i_PCI1500_Set1DigitalOutputOn
@@ -91,6 +95,26 @@ class PCI1500:
             return False
         return True
 
+    def read_1_input_status(self, board_handle, channel):
+        """
+        Read value from a specific digital input channel.
+        :param board_handle: Handle of the board.
+        :param channel: Channel number (0-15).
+        :return: 0 or 1 for input status, or None on error.
+        """
+        channels = channel - 1
+        if channel < 1 or channel > 16:
+            raise ValueError("Channel must be between 1 and 16")
+
+        value = ctypes.c_ubyte()
+        result = self.i_PCI1500_Read1DigitalInput(board_handle, ctypes.c_ubyte(channels), ctypes.byref(value))
+
+        if result != 0:
+            print(f"Error reading input channel {channel}: {result}")
+            return None
+
+        return value.value
+
 
     def read_16_inputs_status(self, board_handle):
         """
@@ -108,7 +132,7 @@ class PCI1500:
         reversed_bit_string = bit_string[::-1]
         return reversed_bit_string
     
-    def read_inputs_status(self, board_handle, channel):
+    def read_input_channel_status(self, board_handle, channel):
         input_status = self.read_16_inputs_status(board_handle)[channel - 1]
         return input_status
 
@@ -132,7 +156,7 @@ class PCI1500:
 
         return reversed_bit_string
     
-    def get_outputs_status(self, board_handle, channel):
+    def get_output_channel_status(self, board_handle, channel):
         output_status = self.get_16_outputs_status(board_handle)[channel - 1]
         return output_status
         
