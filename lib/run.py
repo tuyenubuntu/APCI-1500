@@ -7,7 +7,12 @@ handle = pci.open_board()
 
 if handle:
 
-    channel = 13
-    input_val = pci.read_input_channel_status(handle, channel)
+    channel = 16
+    
+    # pci.set_output_off(handle, channel)
+    pci.set_digital_output_memory(handle, enable=True)
+    pci.set_all_outputs_off(handle)
+    input_val = pci.get_16_outputs_status(handle)
     channels = channel
-    print(f"Channel {channels} status: {input_val}")
+    time.sleep(2)
+    print(f" status: {input_val}")

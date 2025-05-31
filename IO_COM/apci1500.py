@@ -27,7 +27,7 @@ class APCI1500:
         self.i_PCI1500_Set1DigitalOutputOff.restype = ctypes.c_int
 
         self.i_PCI1500_Set16DigitalOutputsOff = self.pci1500.i_PCI1500_Set16DigitalOutputsOff
-        self.i_PCI1500_Set16DigitalOutputsOff.argtypes = [ctypes.c_void_p]
+        self.i_PCI1500_Set16DigitalOutputsOff.argtypes = [ctypes.c_void_p, ctypes.c_ushort]
         self.i_PCI1500_Set16DigitalOutputsOff.restype = ctypes.c_int
 
         self.i_PCI1500_Get16DigitalOutputsStatus = self.pci1500.i_PCI1500_Get16DigitalOutputsStatus
@@ -145,7 +145,7 @@ class APCI1500:
         :param board_handle: Handle of the board.
         :return: Error code if any, 0 if successful.
         """
-        result = self.i_PCI1500_Set16DigitalOutputsOff(self.board_handle)
+        result = self.i_PCI1500_Set16DigitalOutputsOff(self.board_handle, 0xFFFF)
         if result != 0:
             print(f"Error turning off all outputs: {result}")
         else:
