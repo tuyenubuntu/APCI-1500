@@ -1,0 +1,1 @@
+savedcmd_/home/a6-saddlesurface/Documents/apci1500_git+47b6049/drivers/addidata/apci1500/apci1500.o := ld -m elf_x86_64 -z noexecstack   -r -o /home/a6-saddlesurface/Documents/apci1500_git+47b6049/drivers/addidata/apci1500/apci1500.o @/home/a6-saddlesurface/Documents/apci1500_git+47b6049/drivers/addidata/apci1500/apci1500.mod 

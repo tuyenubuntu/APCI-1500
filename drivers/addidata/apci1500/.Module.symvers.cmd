@@ -1,0 +1,1 @@
+savedcmd_/home/a6-saddlesurface/Documents/apci1500_git+47b6049/drivers/addidata/apci1500/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/a6-saddlesurface/Documents/apci1500_git+47b6049/drivers/addidata/apci1500/Module.symvers -T /home/a6-saddlesurface/Documents/apci1500_git+47b6049/drivers/addidata/apci1500/modules.order -i Module.symvers -e 

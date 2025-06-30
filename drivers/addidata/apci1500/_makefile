@@ -1,0 +1,161 @@
+# This makefile is for "local" compilation, that is compiling a driver without using the standard Linux way (make Xconfig etc...)
+# Anyway to compile this driver you need to have a already configured Linux kernel source tree
+
+# This makefile allows to build the driver outside the kernel
+# you need then to specify where are located the kernel source the includes used by this driver
+
+# Notes:
+# * the source of these drivers are generally located in the kernel source directory
+# in the path $(TOPDIR)/drivers/addidata/
+# * the the ADDI-DATA specific includes are generally located in the kernel source directory
+# in the path $(TOPDIR)/include/linux/addidata
+
+####################################################################
+# relative path of the source of the kernel to build against
+# IF YOU ARE BUILDING THIS DRIVER OUTSIDE THE KERNEL SOURCE
+# PLEASE ADAPT THIS VARIABLE TO YOUR LOCAL INSTALLATION 
+ifeq ($(KERNELSRCDIR),)
+KERNELSRCDIR:=/lib/modules/$(shell uname -r)/build
+endif
+####################################################################
+
+####################################################################
+# relative path of the addidata include directory
+# IF YOU ARE BUILDING THIS DRIVER OUTSIDE THE KERNEL SOURCE
+# PLEASE ADAPT THIS VARIABLE TO YOUR LOCAL INSTALLATION 
+ifeq ($(ADDIDATAINC),)
+ADDIDATAINC:=$(shell pwd)/../../../include/linux/addidata
+endif
+####################################################################
+
+ADDIDATA_BASEDIR:=$(shell pwd)/../../..
+
+####################################################################
+# Use M= instead of $(KFLAG)= is mandatory with kernel > 5.x
+KFLAG := $(shell [ "$$(uname -r | cut -c1)" -ge 5 ] && echo M || echo SUBDIRS)
+####################################################################
+
+# Uncomment this line for cross compilation
+#CC=mipsel-linux-gcc
+
+# make -f _makefile 2.4 or 2.6
+all:
+	@echo "please choose either 2.4 or 2.6 (e.g.: make -f _makefile 2.4)"
+
+# Sign the kernel modules
+ifneq ("$(wildcard ./sign.sh)","")
+sign_cmd=./sign.sh $(KERNELSRCDIR)
+else
+sign_cmd=@echo
+endif
+
+2.4: checkconfig .depend apci1500.o ksamples/ksample01.o ksamples/ksample02.o ksamples/ksample03.o samples
+
+2.6: checkconfig apci1500.ko ksamples/ksample01.ko ksamples/ksample02.ko ksamples/ksample03.ko samples
+
+.PHONY: checkconfig .depend samples tests
+
+# make -f _makefile clean
+clean: localclean
+
+localclean:	
+	-cd tests && make clean
+	-cd samples && make clean
+	-cd ksamples && make -f _makefile clean	
+	- find . -name '*.o' -exec rm {} \;
+	- find . -name '*.ko' -exec rm {} \;
+	- find . -name '*.o.flags' -exec rm {} \;
+	- find . -name '.depend' -exec rm {} \;
+	- find . -name '*~' -exec rm {} \;
+	- find . -name '*.mod' -exec rm {} \;
+	- find . -name '*.mod.c' -exec rm {} \;
+	- find . -name '*.mod.o' -exec rm {} \;
+	- find . -name '*.o.cmd' -exec rm {} \;
+	- find . -name '*.cmd' -exec rm {} \;
+	- find . -name '*.ko.cmd' -exec rm {} \;
+	- find . -name '*.o.d' -exec rm {} \;
+	- find . -name '*.symvers' -exec rm {} \;
+	- find . -name '.tmp_versions' -exec rm -Rf {} \;
+	- find . -name 'Module.markers' -exec rm -Rf {} \;
+	- find . -name 'modules.order' -exec rm -Rf {} \;
+
+checkconfig:
+	@if [ ! -e $(KERNELSRCDIR)/.config  ]; \
+	then echo ".config \
+	* Is your kernel configured (make xconfig)? \
+	* Did you correctly adapt _makefile ?"; \
+	echo "KERNELSRCDIR="$(KERNELSRCDIR);\
+	echo "ADDIDATAINC="$(ADDIDATAINC);\
+	exit 1; fi
+
+# check for the sparse static code checker
+sparse_path:=$(shell which sparse)
+
+ifneq ($(sparse_path),)
+$(info info: sparse found as "$(sparse_path)": activating static checking for driver code while compiling for Linux 2.6 )
+SPARSE_FLAGS:="C=1"
+endif
+
+# propagate this configuration if from command line
+ifeq ($(CONFIG_APCI1500_UNIVERSAL_WATCHDOG),y)
+WDFLAGS:="CONFIG_APCI1500_UNIVERSAL_WATCHDOG=y"
+else
+WDFLAGS:=
+endif
+
+# call the kernel's build process to actually build our stuff
+apci1500.o:
+	$(MAKE) $(KFLAG)=$(shell pwd) $(WDFLAGS) CONFIG_APCI1500_IOCTL=m  ADDIDATAINC=$(ADDIDATAINC) -C $(KERNELSRCDIR) modules
+
+ksamples/ksample01.o:
+	$(MAKE) $(KFLAG)=$(shell pwd)/ksamples CONFIG_SAMPLE01=m  ADDIDATAINC=$(ADDIDATAINC) -C $(KERNELSRCDIR) KBUILD_EXTRA_SYMBOLS=$(shell pwd)/Module.symvers modules
+
+ksamples/ksample02.o:
+	$(MAKE) $(KFLAG)=$(shell pwd)/ksamples CONFIG_SAMPLE02=m  ADDIDATAINC=$(ADDIDATAINC) -C $(KERNELSRCDIR) KBUILD_EXTRA_SYMBOLS=$(shell pwd)/Module.symvers modules
+
+ksamples/ksample03.o:
+	$(MAKE) $(KFLAG)=$(shell pwd)/ksamples CONFIG_SAMPLE03=m  ADDIDATAINC=$(ADDIDATAINC) -C $(KERNELSRCDIR) KBUILD_EXTRA_SYMBOLS=$(shell pwd)/Module.symvers modules
+
+apci1500.ko:
+	$(MAKE) $(SPARSE_FLAGS) $(WDFLAGS) $(KFLAG)=$(shell pwd) CONFIG_APCI1500_IOCTL=m  ADDIDATAINC=$(ADDIDATAINC) -C $(KERNELSRCDIR) modules
+	$(sign_cmd) $@
+
+ksamples/ksample01.ko:
+	$(MAKE) $(SPARSE_FLAGS) $(KFLAG)=$(shell pwd)/ksamples CONFIG_SAMPLE01=m  ADDIDATAINC=$(ADDIDATAINC) -C $(KERNELSRCDIR) KBUILD_EXTRA_SYMBOLS=$(shell pwd)/Module.symvers modules
+	$(sign_cmd) $@
+
+ksamples/ksample02.ko:
+	$(MAKE) $(SPARSE_FLAGS) $(KFLAG)=$(shell pwd)/ksamples CONFIG_SAMPLE02=m  ADDIDATAINC=$(ADDIDATAINC) -C $(KERNELSRCDIR) KBUILD_EXTRA_SYMBOLS=$(shell pwd)/Module.symvers modules
+	$(sign_cmd) $@
+
+ksamples/ksample03.ko:
+	$(MAKE) $(SPARSE_FLAGS) $(KFLAG)=$(shell pwd)/ksamples CONFIG_SAMPLE03=m  ADDIDATAINC=$(ADDIDATAINC) -C $(KERNELSRCDIR) KBUILD_EXTRA_SYMBOLS=$(shell pwd)/Module.symvers modules
+	$(sign_cmd) $@
+
+.depend:
+	$(MAKE) $(KFLAG)=$(shell pwd) CONFIG_APCI1500_IOCTL=m  ADDIDATAINC=$(ADDIDATAINC) -C $(KERNELSRCDIR) depend
+
+install_24: apci1500.o
+	$(MAKE) $(KFLAG)=$(shell pwd) CONFIG_APCI1500_IOCTL=m  -C $(KERNELSRCDIR) modules_install
+
+install_26: apci1500.ko
+	$(MAKE) $(KFLAG)=$(shell pwd) CONFIG_APCI1500_IOCTL=m  -C $(KERNELSRCDIR) modules_install
+	depmod -a
+	$(ADDIDATA_BASEDIR)/scripts/mkudevrules.sh apci1500
+        	
+# Compile the test apps
+tests:
+	cd tests && ADDIDATAINC=$(ADDIDATAINC) make all
+
+# Compile the sample apps
+samples:
+	cd samples && ADDIDATAINC=$(ADDIDATAINC) make all
+
+ifeq ($(ARCHIVE_DIR),)
+ARCHIVE_DIR:=/tmp
+endif
+
+# generates driver's package
+dist: localclean
+	../makedistrib apci1500 ./ ./dist/srcfiles $(ADDIDATAINC)/ ./dist/headers $(ARCHIVE_DIR)
+	

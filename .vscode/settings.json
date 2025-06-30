@@ -1,6 +1,0 @@
-{
-    "files.associations": {
-        "Set16DigitalOutputs.C": "cpp",
-        "Read16DigitalInput.C": "cpp"
-    }
-}
