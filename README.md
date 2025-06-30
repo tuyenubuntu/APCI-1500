@@ -1,137 +1,119 @@
-# Linux Drivers
+﻿# APCI-1500
 
-## Introduction about Linux user right
+# APCI1500 Python
 
-User rights management in Linux is a crucial aspect of system administration that ensures the security, stability, and efficient operation of the system. At its core, Linux employs a permission model that controls access to files, directories, and system commands. This model uses three main types of permissions: read (r), write (w), and execute (x), which can be assigned to three categories of users: the file owner, the group, and others.
+These are optimized functions, simple for IO communication on APCI1500 IO Card.
 
-To manage user rights effectively, it's essential to understand how to check the permissions of files and directories. This can be done using the `ls -al` command. For example:
+## Contents
 
-```sh
-$ ls -al
-drwxr-x--- 18 user group  4096 Jun 28 10:21 .
-drwxr-xr-x  3 user group  4096 Jan 29 10:26 ..
--rw-r--r-- 1 user group   4096 Jun 28 12:34 example.txt
+- [Overview](#overview)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Initialize and Open Board](#initialize-and-open-board)
+  - [Read Digital Inputs](#read-digital-inputs)
+  - [Get Digital Outputs](#get-digital-ouputs)
+  - [Control Digital Outputs](#control-digital-outputs)
+  - [Set Digital Output Memory](#set-digital-output-memory)
+  - [Close Board](#close-board)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Overview
+
+This library simplifies interaction with the PCI1500 board by wrapping its C-based DLL functions into Python methods. The library supports:
+
+- Read digital input channels.
+- Get digital input channels.
+- Control 16 digital output channels.
+- management digital output memory state.
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/tuyenubuntu/apci-1500.git
+   ```
+2. Navigate to the library folder:
+   ```bash
+   cd IO_COM
+   ```
+3. Ensure the `PCI1500.dll` file is in the `IO_COM/pci1500` folder.
+
+## Usage
+
+### Initialize and Open Board
+
+```python
+from apci1500 import APCI1500
+
+# Initialize the library
+pci = OSClass()
 ```
 
-In this example, `-rw-r--r--` represents the permissions:
-
-- The first character (-) indicates the file type (e.g., - for a regular file, d for a directory).
-
-- The next three characters (rw-) represent the owner's permissions (read and write).
-
-- The following three characters (r--) represent the group's permissions (read only).
-
-- The final three characters (r--) represent the permissions for others (read only).
-
-By understanding and adhering to user rights management principles and using sudo judiciously, users and administrators can maintain a secure, stable, and efficient Linux environment.
-
-### Importance of file rights for driver usage
-
-When using ADDI-DATA card, it is necessary that the current user have read and write privileges on the device on `/dev/`. If the user doesn't have privileges, it will result in a negative errno error given by our functions. For this reason, ADDI-DATA drivers are delivered with a script that install a udev rule file when drivers are installed. If the next chapter instructions are followed correctly, the resulting device on `/dev/` should be usable.
-
-## Driver build and installation process
-
-### Building and installation
-
-Example with building the apci1500:
-
-```sh
-cd apci1500_ioctl
-make -f _makefile 2.6
-sudo make -f _makefile install_26
-sudo modprobe apci1500
+### Read Digital Inputs
+#### Read 1 Digital Inputs
+```python
+# Read the 16 digital inputs
+in_channel = 1
+in_channel_val = pci.read_1_input_status(in_channel)
+print(f"Status input channel {in_channel}: {in_channel_val}")
 ```
 
-After the `sudo make -f _makefile install_26` command, the file `/etc/udev/rules.d/addidata.rules` should exist. This file can be used to further configure user rights on ADDI-DATA devices that will appear under `/dev/`.
-
-#### Xenomai differences
-
-If you are using a "xenomai" driver, the commands will be slightly different:
-
-```sh
-XENO=y make all && XENO=y make install #Build with xenomai support
-modprobe apci1710_xeno
+### Get Digital Ouputs
+#### Get 1 Digital Outputs
+```python
+out_channel = 2
+out_channel_val = get_output_channel_status(out_channel)
+print(f"Status output channel {out_channel}: {out_channel_val}")
 ```
 
-Or:
 
-```sh
-make all && make install #Build without xenomai support
-modprobe apci1710
+### Control Digital Outputs
+#### Turn On/Off Specific Channels
+
+```python
+# Turn on channel 0
+pci.set_output_on(0)
+
+# Turn off channel 0
+pci.set_output_off(0)
 ```
 
-In both cases, rights need to be setup, executing mkudevrules.sh script will set rights so only `root` and members of `addi-card-users` can use it.
-Simply execute `./mkudevrules.sh apci1710` for example.
+#### Turn On/Off All Channels
 
-### mkudevrules.sh script
+```python
+# Turn on all outputs
+pci.set_all_outputs_on()
 
-The script will add a line to the file `/etc/udev/rules.d/addidata.rules`, creating it if it doesn't exist.
-
-After the script execution, the board folder should look like this:
-
-```sh
-ls -ld /dev/apci*
-total 0
-drwxr-xr-x   2 root          addi-card-users          60 august  24 11:08 apci1500
-crw-rw----   1 root          addi-card-users    234,   0 august  24 11:08 apci1500_0
+# Turn off all outputs
+pci.set_all_outputs_off()
 ```
 
-The board should have the access rights set to `crw-rw----`, with the group set to `addi-card-users`.
+### Close Board
 
-To add the current user to the group and use the boards, the following command can be used:
-
-```bash
-sudo usermod -aG addi-card-users $USER
+```python
+# Close the board
+pci.close_board()
 ```
-
-By having the current user in the group `addi-card-users`, they will be able to use samples without being `root`, enhancing security.
 
 ## Troubleshooting
 
-### My computer doesn't have udev
+- Ensure the `PCI1500.dll` file is located in the correct path as specified during initialization.
+- Verify the board index if you have multiple boards connected.
+- If functions return errors, refer to the PCI1500 documentation for error codes.
+- If the `PCI1500.dll` file is missing or the system lacks drivers for the IO PCI-1500 card, visit the manufacturer's website to download the correct driver (ensure the driver matches your operating system version and PCI slot type on your motherboard): [ADDI-DATA Drivers](https://www.addi-data.com/drivers).
 
-In some rare cases, Linux distributions don't provide udev, and provide another device manager. The script we provide only support udev, but most device manager can use rules like udev does. Try creating your set of rules.
+![Driver Download Instructions](/Documentation/pic_wrapper/driver_linux.png) 
 
-### I have a "file not found" error
+## Contributing
 
-In linux systems, particularly under Debian based systems (like Ubuntu), kernel bumps may happen regularly. Due to this, kernel modules will be judged obsolete by linux, and need to be recompiled again. It is easy to detect: if executing `ls -al apci*` gives nothing, you are probably facing a kernel bump issue. Fixing it is easy, simply **redo the building and installation steps**.
+Feel free to open issues or submit pull requests to improve this library. Contributions are welcome!
 
-### I have a errno 13 (permission denied) or errno 1
+## License
 
-Please **use the script to setup the rules** as stated above. Make sure you used the right card name in argument. Delete the file `/etc/udev/rules.d/addidata.rules`, execute the script again and restart the computer.
+This library provides a Python wrapper for the PCI1500 DLL, which is part of the software suite provided by ADDI-DATA. The original DLL and associated tools can be obtained from ADDI-DATA's official website: [https://www.addi-data.com/drivers](https://www.addi-data.com/drivers).
 
-### ADDI-DATA Errors
+The wrapper code in this repository is distributed under the MIT License. See the `LICENSE` file for details.
 
-In most ADDI-DATA Drivers functions, a negative return value means an ERRNO Value. Please refer to the documentation on errno to understand better. In most case, the error will be `-EPERM` or `-EACCES`, which values are -1 and -13, which translate to `Operation not permitted` and `Permission denied`. This often means the current user can't open or read/write on the device under `/dev/`.
 
-### Avoiding the use of sudo
 
-The rule regarding sudo is as simple as to not use sudo unless absolutely necessary. In the context of building and installing pci card drivers, sudo should be only used when the install command is executed. For example, in the following, sudo is only used when necessary. If sudo is used on the other commands, it could mess some rights on files.
-
-```sh
-cd apci1500_ioctl
-make -f _makefile 2.6
-sudo make -f _makefile install_26
-sudo modprobe apci1500
-cd samples
-./sample_event
-```
-
-Note that `sample_event` is called without the use of sudo. In a well managed environment, this is the expected behavior. If a user need access to a device on `/dev/`, which is the case when using the sample, the user should be part of a group that as access to the board.
-
-### My error is not listed
-
-First check the driver's Doxygen documentation, it contain important information on usage and errors of each function. Then, check the kernel's journal with the command `dmesg`, it contain a lot of information, and often errors are reported there. Try to redo the installation steps, and verify the board rights again. After all this, if your problem is still not solved, contact us by providing maximum context:
-
-- The card serial number
-- The steps to reproduce the error
-- Minimal sample of code that uses the driver and reproduce the error
-- The output from dmesg (you can output it to a file with `dmesg > log.txt`)
-- The version of your linux kernel (provide the output of `uname -a`)
-- The driver version
-- The firmware version (if relevant)
-- The package name you used to install the driver, it should be something like `apcie2200_git+031b0267.tar.bz2`
-
-## Final note
-
-Each driver contain also a README.txt file, which contain complementary information that can be card specific.

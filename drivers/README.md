@@ -1,0 +1,137 @@
+# Linux Drivers
+
+## Introduction about Linux user right
+
+User rights management in Linux is a crucial aspect of system administration that ensures the security, stability, and efficient operation of the system. At its core, Linux employs a permission model that controls access to files, directories, and system commands. This model uses three main types of permissions: read (r), write (w), and execute (x), which can be assigned to three categories of users: the file owner, the group, and others.
+
+To manage user rights effectively, it's essential to understand how to check the permissions of files and directories. This can be done using the `ls -al` command. For example:
+
+```sh
+$ ls -al
+drwxr-x--- 18 user group  4096 Jun 28 10:21 .
+drwxr-xr-x  3 user group  4096 Jan 29 10:26 ..
+-rw-r--r-- 1 user group   4096 Jun 28 12:34 example.txt
+```
+
+In this example, `-rw-r--r--` represents the permissions:
+
+- The first character (-) indicates the file type (e.g., - for a regular file, d for a directory).
+
+- The next three characters (rw-) represent the owner's permissions (read and write).
+
+- The following three characters (r--) represent the group's permissions (read only).
+
+- The final three characters (r--) represent the permissions for others (read only).
+
+By understanding and adhering to user rights management principles and using sudo judiciously, users and administrators can maintain a secure, stable, and efficient Linux environment.
+
+### Importance of file rights for driver usage
+
+When using ADDI-DATA card, it is necessary that the current user have read and write privileges on the device on `/dev/`. If the user doesn't have privileges, it will result in a negative errno error given by our functions. For this reason, ADDI-DATA drivers are delivered with a script that install a udev rule file when drivers are installed. If the next chapter instructions are followed correctly, the resulting device on `/dev/` should be usable.
+
+## Driver build and installation process
+
+### Building and installation
+
+Example with building the apci1500:
+
+```sh
+cd apci1500_ioctl
+make -f _makefile 2.6
+sudo make -f _makefile install_26
+sudo modprobe apci1500
+```
+
+After the `sudo make -f _makefile install_26` command, the file `/etc/udev/rules.d/addidata.rules` should exist. This file can be used to further configure user rights on ADDI-DATA devices that will appear under `/dev/`.
+
+#### Xenomai differences
+
+If you are using a "xenomai" driver, the commands will be slightly different:
+
+```sh
+XENO=y make all && XENO=y make install #Build with xenomai support
+modprobe apci1710_xeno
+```
+
+Or:
+
+```sh
+make all && make install #Build without xenomai support
+modprobe apci1710
+```
+
+In both cases, rights need to be setup, executing mkudevrules.sh script will set rights so only `root` and members of `addi-card-users` can use it.
+Simply execute `./mkudevrules.sh apci1710` for example.
+
+### mkudevrules.sh script
+
+The script will add a line to the file `/etc/udev/rules.d/addidata.rules`, creating it if it doesn't exist.
+
+After the script execution, the board folder should look like this:
+
+```sh
+ls -ld /dev/apci*
+total 0
+drwxr-xr-x   2 root          addi-card-users          60 august  24 11:08 apci1500
+crw-rw----   1 root          addi-card-users    234,   0 august  24 11:08 apci1500_0
+```
+
+The board should have the access rights set to `crw-rw----`, with the group set to `addi-card-users`.
+
+To add the current user to the group and use the boards, the following command can be used:
+
+```bash
+sudo usermod -aG addi-card-users $USER
+```
+
+By having the current user in the group `addi-card-users`, they will be able to use samples without being `root`, enhancing security.
+
+## Troubleshooting
+
+### My computer doesn't have udev
+
+In some rare cases, Linux distributions don't provide udev, and provide another device manager. The script we provide only support udev, but most device manager can use rules like udev does. Try creating your set of rules.
+
+### I have a "file not found" error
+
+In linux systems, particularly under Debian based systems (like Ubuntu), kernel bumps may happen regularly. Due to this, kernel modules will be judged obsolete by linux, and need to be recompiled again. It is easy to detect: if executing `ls -al apci*` gives nothing, you are probably facing a kernel bump issue. Fixing it is easy, simply **redo the building and installation steps**.
+
+### I have a errno 13 (permission denied) or errno 1
+
+Please **use the script to setup the rules** as stated above. Make sure you used the right card name in argument. Delete the file `/etc/udev/rules.d/addidata.rules`, execute the script again and restart the computer.
+
+### ADDI-DATA Errors
+
+In most ADDI-DATA Drivers functions, a negative return value means an ERRNO Value. Please refer to the documentation on errno to understand better. In most case, the error will be `-EPERM` or `-EACCES`, which values are -1 and -13, which translate to `Operation not permitted` and `Permission denied`. This often means the current user can't open or read/write on the device under `/dev/`.
+
+### Avoiding the use of sudo
+
+The rule regarding sudo is as simple as to not use sudo unless absolutely necessary. In the context of building and installing pci card drivers, sudo should be only used when the install command is executed. For example, in the following, sudo is only used when necessary. If sudo is used on the other commands, it could mess some rights on files.
+
+```sh
+cd apci1500_ioctl
+make -f _makefile 2.6
+sudo make -f _makefile install_26
+sudo modprobe apci1500
+cd samples
+./sample_event
+```
+
+Note that `sample_event` is called without the use of sudo. In a well managed environment, this is the expected behavior. If a user need access to a device on `/dev/`, which is the case when using the sample, the user should be part of a group that as access to the board.
+
+### My error is not listed
+
+First check the driver's Doxygen documentation, it contain important information on usage and errors of each function. Then, check the kernel's journal with the command `dmesg`, it contain a lot of information, and often errors are reported there. Try to redo the installation steps, and verify the board rights again. After all this, if your problem is still not solved, contact us by providing maximum context:
+
+- The card serial number
+- The steps to reproduce the error
+- Minimal sample of code that uses the driver and reproduce the error
+- The output from dmesg (you can output it to a file with `dmesg > log.txt`)
+- The version of your linux kernel (provide the output of `uname -a`)
+- The driver version
+- The firmware version (if relevant)
+- The package name you used to install the driver, it should be something like `apcie2200_git+031b0267.tar.bz2`
+
+## Final note
+
+Each driver contain also a README.txt file, which contain complementary information that can be card specific.
