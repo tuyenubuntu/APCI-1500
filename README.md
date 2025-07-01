@@ -55,7 +55,7 @@ pci = OSClass()
 ```python
 # Read the 16 digital inputs
 in_channel = 1
-in_channel_val = pci.read_1_input_status(in_channel)
+in_channel_val = pci.get_di(in_channel)
 print(f"Status input channel {in_channel}: {in_channel_val}")
 ```
 
@@ -63,7 +63,7 @@ print(f"Status input channel {in_channel}: {in_channel_val}")
 #### Get 1 Digital Outputs
 ```python
 out_channel = 2
-out_channel_val = get_output_channel_status(out_channel)
+out_channel_val = get_do(out_channel)
 print(f"Status output channel {out_channel}: {out_channel_val}")
 ```
 
@@ -73,20 +73,17 @@ print(f"Status output channel {out_channel}: {out_channel_val}")
 
 ```python
 # Turn on channel 0
-pci.set_output_on(0)
+pci.set_do(0)
 
 # Turn off channel 0
-pci.set_output_off(0)
+pci.reset_do(0)
 ```
 
-#### Turn On/Off All Channels
+#### Turn Off All Channels
 
 ```python
-# Turn on all outputs
-pci.set_all_outputs_on()
-
 # Turn off all outputs
-pci.set_all_outputs_off()
+pci.reset_all_do()
 ```
 
 ### Close Board
@@ -98,7 +95,7 @@ pci.close_board()
 
 ## Troubleshooting
 
-- Ensure the `PCI1500.dll` file is located in the correct path as specified during initialization.
+- Ensure the `PCI1500.so` file is located in the correct path as specified during initialization.
 - Verify the board index if you have multiple boards connected.
 - If functions return errors, refer to the PCI1500 documentation for error codes.
 - If the `PCI1500.dll` file is missing or the system lacks drivers for the IO PCI-1500 card, visit the manufacturer's website to download the correct driver (ensure the driver matches your operating system version and PCI slot type on your motherboard): [ADDI-DATA Drivers](https://www.addi-data.com/drivers).
