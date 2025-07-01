@@ -32,12 +32,14 @@ This library simplifies interaction with the PCI1500 board by wrapping its C-bas
 1. Clone the repository:
    ```bash
    git clone https://github.com/tuyenubuntu/apci-1500.git
+   cd APCI-1500
+   git switch linux
    ```
 2. Navigate to the library folder:
    ```bash
    cd lib_linux
    ```
-3. Ensure the `PCI1500.dll` file is in the `IO_COM/pci1500` folder.
+3. Ensure the `PCI1500.so` file is in the `lib_linux` folder.
 
 ## Usage
 
@@ -98,7 +100,12 @@ pci.close_board()
 - Ensure the `PCI1500.so` file is located in the correct path as specified during initialization.
 - Verify the board index if you have multiple boards connected.
 - If functions return errors, refer to the PCI1500 documentation for error codes.
-- If the `PCI1500.dll` file is missing or the system lacks drivers for the IO PCI-1500 card, visit the manufacturer's website to download the correct driver (ensure the driver matches your operating system version and PCI slot type on your motherboard): [ADDI-DATA Drivers](https://www.addi-data.com/drivers).
+- If the `PCI1500.so` file is missing or the system lacks drivers for the IO PCI-1500 card, visit the manufacturer's website to download the correct driver (ensure the driver matches your operating system version and PCI slot type on your motherboard): [ADDI-DATA Drivers](https://www.addi-data.com/drivers). And recompile the library in the 'sample' folder: 
+
+```bash
+cd drivers/addidata/apci1500/samples
+make clean & make
+```
 
 ![Driver Download Instructions](/Documentation/pic_wrapper/driver_linux.png) 
 
