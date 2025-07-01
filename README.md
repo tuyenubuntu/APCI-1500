@@ -35,7 +35,7 @@ This library simplifies interaction with the PCI1500 board by wrapping its C-bas
    ```
 2. Navigate to the library folder:
    ```bash
-   cd IO_COM
+   cd lib_linux
    ```
 3. Ensure the `PCI1500.dll` file is in the `IO_COM/pci1500` folder.
 
@@ -44,7 +44,7 @@ This library simplifies interaction with the PCI1500 board by wrapping its C-bas
 ### Initialize and Open Board
 
 ```python
-from apci1500 import APCI1500
+from apci1500 import OSClass
 
 # Initialize the library
 pci = OSClass()
