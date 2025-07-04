@@ -35,11 +35,18 @@ This library simplifies interaction with the PCI1500 board by wrapping its C-bas
    cd APCI-1500
    git switch linux
    ```
-2. Navigate to the library folder:
+2. Quick install driver (linux):
+   ```bash
+   cd drivers/addidata/apci1500
+   make -f _makefile 2.6
+   sudo make -f _makefile install_26
+   sudo modprobe apci1500
+   ```
+4. Navigate to the library folder:
    ```bash
    cd lib_linux
    ```
-3. Ensure the `PCI1500.so` file is in the `lib_linux` folder.
+5. Ensure the `PCI1500.so` file is in the `lib_linux` folder.
 
 ## Usage
 
