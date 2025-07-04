@@ -30,8 +30,8 @@ This library simplifies interaction with the PCI1500 board by wrapping its C-bas
 - Function has been optimized, simple on IO_COM folder: [IO_COM](IO_COM/).
 
 ## Installation
-0 . Install driver for window OS(indows 7, Windows 10 and Windows 11):
-  Folow this document: [Instructions install driver](Documentation/Install_doc/Installation_Instructions.pdf)
+0. Install driver for window OS(indows 7, Windows 10 and Windows 11):
+  Folow this document: [Instructions install driver](Documentation/Installation_Instructions.pdf)
 
 1. Clone the repository:
    ```bash
